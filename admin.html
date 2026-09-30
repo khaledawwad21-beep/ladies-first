@@ -1,419 +1,1792 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"><title>Ladies First — الإدارة</title><link rel="stylesheet" href="admin.css"><style id="lf-inline-css">/* ---- extracted style block 1 ---- */
-:root{--pink:#e98eae;--plum:#63345e;--cream:#fbf4ec;--line:#eadce3;--green:#718a57;--red:#a33d55}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:#443542;font-family:Arial,Tahoma}.top{background:var(--plum);color:#fff;padding:18px}.nav{max-width:1150px;margin:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.nav b{font-size:20px;margin-inline-end:auto}.nav button,.nav a{padding:10px 14px;border:0;border-radius:10px;background:#fff;color:var(--plum);text-decoration:none;cursor:pointer}.wrap{max-width:1150px;margin:20px auto;padding:0 15px}.box,.login{background:#fff;padding:20px;border-radius:18px;box-shadow:0 8px 25px #63345e12;margin-bottom:18px}input,select,textarea{width:100%;padding:11px;margin:5px 0 10px;border:1px solid #e5d8e0;border-radius:10px}button{padding:11px 16px;border:0;border-radius:10px;background:var(--plum);color:#fff;cursor:pointer}.pink{background:var(--pink)}.danger{background:var(--red)}.green{background:var(--green)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:#f7d8e3;padding:18px;border-radius:15px}.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}.product{border:1px solid #eee1e8;border-radius:14px;padding:15px;margin:10px 0}.productHead{display:grid;grid-template-columns:68px minmax(0,1fr) auto auto auto;align-items:center;gap:10px}.productHead .grow{min-width:0}.productHead .grow b{display:block;white-space:normal;word-break:normal;overflow-wrap:anywhere}.soldAdminBadge{display:inline-flex;align-items:center;background:#e3133a;color:#fff;border-radius:14px;padding:9px 14px;font-size:16px;font-weight:900;white-space:nowrap;box-shadow:0 5px 14px #e3133a55;border:2px solid #ffb3c2}.stockBadge{display:inline-flex;align-items:center;background:#f4efe2;color:#665b42;border:1px solid #ddd0af;border-radius:10px;padding:5px 8px;font-size:11px;font-weight:bold;white-space:nowrap}.variantEditor{display:flex;flex-direction:column;gap:8px;margin:8px 0}.variantRow{display:grid;grid-template-columns:1fr 120px auto;gap:8px;align-items:center}.variantRow input{margin:0}.stockQuick{display:flex;gap:8px;align-items:center;background:#eef7e9;padding:10px;border-radius:10px;margin:10px 0}.stockQuick input{margin:0;max-width:180px}.visaBadge{display:inline-flex;align-items:center;background:#eef7e9;color:#55713f;border:1px solid #cbdcbf;border-radius:10px;padding:4px 7px;font-size:11px;font-weight:bold;white-space:nowrap}.visaBox{background:#eef7e9;padding:10px;border-radius:10px;color:#55713f;font-weight:bold}.productHead .grow{flex:1}.productAdminThumb{width:68px;height:68px;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f5e1e8;flex:none}.gallery{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.gallery img{width:75px;height:75px;object-fit:cover;border-radius:10px}.muted{font-size:12px;color:#777}.edit{display:none;background:#f8edf2;padding:15px;border-radius:14px;margin-top:12px}.edit.open{display:block}.order{border:1px solid #eee1e8;border-radius:14px;padding:15px;margin:10px 0}.orderSummary{display:flex;align-items:center;gap:12px}.orderSummary .grow{flex:1}.orderDetails{display:none;background:#fff7fa;padding:14px;border-radius:14px;margin-top:12px}.orderDetails.open{display:block}.orderItem{display:flex;gap:12px;align-items:center;border-bottom:1px solid #eee;padding:10px 0}.orderItem img{width:78px;height:78px;object-fit:cover;border-radius:12px;background:#f4e4eb}.orderItem .grow{flex:1}.thumb{width:90px;height:90px;object-fit:cover;border-radius:12px;background:#f5e1e8}.previewLogo{width:120px;height:120px;object-fit:contain;border:1px solid var(--line);border-radius:16px;background:#fff}.small{font-size:12px;color:#777}.couponAdmin{background:#fff7fa;border:1px solid #eadce3;border-radius:14px;padding:15px;margin-top:10px}.couponAdmin{overflow-x:auto}.couponAdmin table{width:100%;min-width:620px;border-collapse:collapse}.couponAdmin th,.couponAdmin td{padding:8px;border-bottom:1px solid #eadce3;text-align:right}.printBtn{background:#4d7a8a}.anchor{scroll-margin-top:80px}@media(max-width:700px){.grid{grid-template-columns:1fr}.row{display:block}.nav b{width:100%;margin:0 0 5px}.productHead{grid-template-columns:56px minmax(0,1fr);align-items:start}.productHead .productAdminThumb{width:56px;height:56px}.productHead>button,.productHead>strong,.productHead>.visaBadge{grid-column:auto}.productHead>button{padding:8px 10px}.productHead>.grow{grid-column:2}.productHead>strong{grid-column:2}.productHead>.visaBadge{grid-column:2;justify-self:start}}
-.packRow{display:grid;grid-template-columns:1.2fr 1.2fr .6fr auto auto;gap:8px;align-items:center;background:#fff7fa;border:1px solid #eadce3;border-radius:12px;padding:10px;margin:7px 0}.packRow input{margin:0}@media(max-width:700px){.packRow{grid-template-columns:1fr 1fr}.packRow button{grid-column:auto}}.socialAdminRow{display:grid;grid-template-columns:44px 1fr 2fr auto;gap:8px;align-items:center;background:#fff7fa;border:1px solid #eadce3;border-radius:12px;padding:10px;margin:7px 0}.socialAdminIcon{font-size:22px;text-align:center}.userAdmin{border:1px solid #eadce3;border-radius:14px;padding:13px;margin:9px 0;background:#fff}.userHead{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.userHead .grow{flex:1;min-width:180px}.userMeta{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px}.userMeta div{background:#faf5f8;border-radius:9px;padding:8px;font-size:12px}.adminCollapsible{display:none}.adminCollapsible.open{display:block}.userEditGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.userEditGrid input,.userEditGrid select{margin:0}.userActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}@media(max-width:700px){.userEditGrid{grid-template-columns:1fr}}@media(max-width:700px){.socialAdminRow{grid-template-columns:36px 1fr}.socialAdminRow input,.socialAdminRow label,.socialAdminRow button{grid-column:1/-1}.userMeta{grid-template-columns:1fr 1fr}}
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ladies First — لوحة التحكم</title>
 
-/* ---- extracted style block 2 ---- */
-.customDateInput{background:#fff;cursor:pointer!important}
-.customDateInput::placeholder{color:#8b7887}
-#customDatePicker{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;padding:18px}
-#customDatePicker.open{display:flex}
-.datePickerBox{width:min(360px,94vw);background:#fff;border-radius:20px;box-shadow:0 18px 60px #0004;padding:16px;direction:rtl}
-.datePickerHead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
-.datePickerHead button{width:40px;height:40px;border:1px solid #eadce3;background:#fff;border-radius:12px;color:#63345e;font-size:22px}
-.datePickerMonth{font-weight:800;color:#63345e;font-size:17px}
-.datePickerWeek{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:5px;color:#8a7184;font-size:12px;text-align:center}
-.datePickerGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.datePickerGrid button{height:40px;border:1px solid #eadce3;background:#fff;border-radius:10px;font-weight:700;color:#44323f}
-.datePickerGrid button:hover,.datePickerGrid button:active{background:#f5e4ee;color:#63345e}
-.datePickerGrid button.today{border-color:#63345e;color:#63345e}
-.datePickerGrid button.selected{background:#63345e;color:#fff;border-color:#63345e}
-.datePickerHint{text-align:center;color:#8a7184;font-size:12px;margin-top:10px}
-
-/* ---- extracted style block 3 ---- */
-body{font-family:Arial,Tahoma;margin:0;background:#fff;color:#3f3340}.page{max-width:760px;margin:auto;padding:30px}.head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #63345e;padding-bottom:18px}.head img{width:100px;height:100px;object-fit:contain}.brand{color:#63345e;font-size:28px;font-weight:700}.qr{width:110px;height:110px;object-fit:contain}.meta{background:#fbf4ec;border-radius:14px;padding:15px;margin:18px 0}.item{display:flex;gap:14px;align-items:center;border-bottom:1px solid #ddd;padding:12px 0}.item img{width:75px;height:75px;object-fit:cover;border-radius:10px}.item div{flex:1}.total{font-size:22px;font-weight:bold;text-align:left;margin-top:20px;color:#63345e}.foot{text-align:center;margin-top:30px;color:#777}@media print{.page{padding:10mm}.noPrint{display:none}}
-.permGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:12px 0}.permGrid label{background:#fff;border:1px solid #eadce3;border-radius:10px;padding:9px}.userActions{display:flex;gap:8px;flex-wrap:wrap}.visaBadge{display:inline-block;padding:3px 8px;border-radius:999px;background:#efe4f0}.soldAdminBadge{display:inline-block;padding:3px 8px;border-radius:999px}
-</style><meta name="theme-color" content="#63345e"></head><body><div id="customDatePicker" onclick="if(event.target===this)closeDatePicker()"><div class="datePickerBox"><div class="datePickerHead"><button type="button" onclick="changePickerMonth(-1)">‹</button><div id="datePickerMonth" class="datePickerMonth"></div><button type="button" onclick="changePickerMonth(1)">›</button></div><div class="datePickerWeek"><span>ح</span><span>ن</span><span>ث</span><span>ر</span><span>خ</span><span>ج</span><span>س</span></div><div id="datePickerGrid" class="datePickerGrid"></div><div class="datePickerHint">اختاري اليوم فقط — يتم اعتماده مباشرة بدون OK</div></div></div><div class="top"><div class="nav"><b>🌸 Ladies First — لوحة التحكم</b><a href="index.html">فتح المتجر</a><button onclick="goTo('productsSection')">📦 المنتجات</button><button onclick="goTo('ordersSection')">🛍️ الطلبات <span id="orderBadge"></span></button><button onclick="goTo('catsSection')">🏷️ الفئات</button><button onclick="goTo('brandsSection')">🏷️ البراندات</button><button onclick="goTo('heroSection')">🖼️ السلايدر</button><button onclick="goTo('couponsSection')">🎟️ أكواد الخصم</button><button onclick="goTo('reportSection')">📊 المبيعات والأرباح</button><button type="button" onclick="toggleAdminPanel('socialSection')">📱 مواقع التواصل</button><button type="button" onclick="toggleAdminPanel('usersSection')">👥 المستخدمون</button><button type="button" id="adminsNav" style="display:none" onclick="toggleAdminPanel('adminsSection')">🛡️ الإداريون</button><button type="button" onclick="toggleAdminPanel('automationSection')">🤖 الأتمتة والنقاط</button></div></div><div class="wrap" id="app"></div>
-<script>
-const INITIAL_CATS={"مكياج": {"ar": "مكياج", "en": "Makeup", "icon": "💄", "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjdjYmQ4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZThkOWVjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+ShDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPtmF2YPZitin2Kw8L3RleHQ+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjY2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyOCIgZmlsbD0iIzYzMzQ1ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5NYWtldXA8L3RleHQ+CiAgICA8L3N2Zz4="}, "عطور": {"ar": "عطور", "en": "Perfumes", "icon": "🌸", "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWZkMGRmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGVkNWU5Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+MuDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPti52LfZiNixPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+UGVyZnVtZXM8L3RleHQ+CiAgICA8L3N2Zz4="}, "ساعات": {"ar": "ساعات", "en": "Watches", "icon": "⌚", "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZTRkZWNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZDdlMmM2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+4oyaPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2MTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iNDYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+2LPYp9i52KfYqjwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI4IiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPldhdGNoZXM8L3RleHQ+CiAgICA8L3N2Zz4="}, "شنط": {"ar": "شنط", "en": "Bags", "icon": "👜", "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWRkNmNjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTRkN2VhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+RnDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPti02YbYtzwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI4IiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPkJhZ3M8L3RleHQ+CiAgICA8L3N2Zz4="}};
-const INITIAL_PRODUCTS=[{"id": 1, "cat": "مكياج", "name": "طقم مكياج فاخر", "en": "Luxury Makeup Set", "price": 89, "old": 109, "discount": 20, "onSale": true, "offerLabel": true, "icon": "💄", "desc": "مجموعة أنيقة للاستخدام اليومي والمناسبات.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjdjYmQ4Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZThkOWVjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+ShDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPti32YLZhSDZhdmD2YrYp9isINmB2KfYrtixPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+TGFkaWVzIEZpcnN0PC90ZXh0PgogICAgPC9zdmc+"]}, {"id": 2, "cat": "عطور", "name": "عطر نسائي Blossom", "en": "Blossom Women Perfume", "price": 119, "old": 149, "discount": 20, "onSale": true, "offerLabel": true, "icon": "🌸", "desc": "رائحة ناعمة وأنيقة تدوم طوال اليوم.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWZkMGRmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGVkNWU5Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+MuDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPkJsb3Nzb208L3RleHQ+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjY2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyOCIgZmlsbD0iIzYzMzQ1ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5Xb21lbiBQZXJmdW1lPC90ZXh0PgogICAgPC9zdmc+"]}, {"id": 3, "cat": "ساعات", "name": "ساعة نسائية كلاسيكية", "en": "Classic Women Watch", "price": 159, "old": 199, "discount": 20, "onSale": true, "offerLabel": true, "icon": "⌚", "desc": "تصميم راقٍ يناسب الإطلالات اليومية.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZTRkZWNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZDdlMmM2Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+4oyaPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2MTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iNDYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+2LPYp9i52Kkg2YPZhNin2LPZitmD2YrYqTwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI4IiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPkNsYXNzaWMgV2F0Y2g8L3RleHQ+CiAgICA8L3N2Zz4="]}, {"id": 4, "cat": "شنط", "name": "حقيبة نسائية أنيقة", "en": "Elegant Women Bag", "price": 129, "old": 169, "discount": 24, "onSale": true, "offerLabel": true, "icon": "👜", "desc": "حقيبة عملية وأنيقة مع مساحة مناسبة.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWRkNmNjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTRkN2VhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+RnDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPtit2YLZitio2Kkg2KPZhtmK2YLYqTwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI4IiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPkVsZWdhbnQgQmFnPC90ZXh0PgogICAgPC9zdmc+"]}, {"id": 5, "cat": "مكياج", "name": "روج Velvet", "en": "Velvet Lipstick", "price": 39, "old": 49, "discount": 20, "onSale": true, "offerLabel": true, "icon": "💋", "desc": "لون غني بلمسة مخملية.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjNjMmNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZThkNGU0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+SizwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPtix2YjYrCBWZWx2ZXQ8L3RleHQ+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjY2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyOCIgZmlsbD0iIzYzMzQ1ZSIgZm9udC1mYW1pbHk9IkFyaWFsIj5WZWx2ZXQgTGlwc3RpY2s8L3RleHQ+CiAgICA8L3N2Zz4="]}, {"id": 6, "cat": "عطور", "name": "عطر Rose Mist", "en": "Rose Mist Perfume", "price": 99, "old": 125, "discount": 21, "onSale": true, "offerLabel": true, "icon": "🌹", "desc": "نفحات وردية ناعمة ومميزة.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZjFjYmQ5Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTRkN2VjIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+MuTwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPlJvc2UgTWlzdDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI4IiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPldvbWVuIFBlcmZ1bWU8L3RleHQ+CiAgICA8L3N2Zz4="]}, {"id": 7, "cat": "ساعات", "name": "ساعة Rose Gold", "en": "Rose Gold Watch", "price": 179, "old": 219, "discount": 18, "onSale": true, "offerLabel": true, "icon": "⌚", "desc": "لمسة أنثوية فاخرة.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZTlkOWQyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTVkNWU4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+4oyaPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2MTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iNDYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+Um9zZSBHb2xkPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+UHJlbWl1bSBXYXRjaDwvdGV4dD4KICAgIDwvc3ZnPg=="]}, {"id": 8, "cat": "شنط", "name": "Mini Shoulder Bag", "en": "Mini Shoulder Bag", "price": 109, "old": 139, "discount": 22, "onSale": true, "offerLabel": true, "icon": "👜", "desc": "حقيبة صغيرة وخفيفة للخروجات.", "images": ["data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWZkOWNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTFkOGVhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjkwMCIgcng9IjcwIiBmaWxsPSJ1cmwoI2cpIi8+CiAgICA8Y2lyY2xlIGN4PSI0NTAiIGN5PSIzNjUiIHI9IjE3NSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iLjcyIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjQwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+8J+RnDwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iNjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNjMzNDVlIiBmb250LWZhbWlseT0iQXJpYWwiPk1pbmkgQmFnPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSI2NjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiM2MzM0NWUiIGZvbnQtZmFtaWx5PSJBcmlhbCI+U2hvdWxkZXIgQmFnPC90ZXh0PgogICAgPC9zdmc+"]}];
-const LOGO="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+CjxjaXJjbGUgY3g9IjI1MCIgY3k9IjI1MCIgcj0iMjM1IiBmaWxsPSIjZmJmNGVjIiBzdHJva2U9IiNlOThlYWUiIHN0cm9rZS13aWR0aD0iMTIiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMjUwIiByPSIyMDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E5YjI4YSIgc3Ryb2tlLXdpZHRoPSI0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjU1IiBmb250LWZhbWlseT0iR2VvcmdpYSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzYzMzQ1ZSI+TGFkaWVzPC90ZXh0Pgo8dGV4dCB4PSIyNTAiIHk9IjI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI1NSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2MzM0NWUiPkZpcnN0PC90ZXh0Pgo8dGV4dCB4PSIyNTAiIHk9IjMzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxOCIgbGV0dGVyLXNwYWNpbmc9IjUiIGZpbGw9IiNhODg5YjciPk9OTElORSBTVE9SRTwvdGV4dD4KPC9zdmc+";
-const OFFER="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iMTcwIiB2aWV3Qm94PSIwIDAgNTAwIDE3MCI+CjxwYXRoIGQ9Ik0zNSA4NSBRNjAgMjUgMTI1IDM1IFExOTAgNSAyNTAgMzUgUTMxMCA1IDM3NSAzNSBRNDQwIDI1IDQ2NSA4NSBRNDQwIDE0NSAzNzUgMTM1IFEzMTAgMTY1IDI1MCAxMzUgUTE5MCAxNjUgMTI1IDEzNSBRNjAgMTQ1IDM1IDg1WiIgZmlsbD0iIzYzMzQ1ZSIvPgo8Y2lyY2xlIGN4PSI3MCIgY3k9Ijg1IiByPSI3IiBmaWxsPSIjZTk4ZWFlIi8+PGNpcmNsZSBjeD0iNDMwIiBjeT0iODUiIHI9IjciIGZpbGw9IiNhOWIyOGEiLz4KPHRleHQgeD0iMjUwIiB5PSI5MyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIzOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmIj7ZhNij2KzZhNmDINiz2YrYr9iq2Yo8L3RleHQ+Cjwvc3ZnPg==";
-function load(k,d){try{const x=localStorage.getItem(k);return x?JSON.parse(x):d}catch(e){return d}}
-function productStoragePayload(list){return (Array.isArray(list)?list:[]).map(p=>{const q={...p};delete q.images;return q})}
-function setStorageReplacing(k,json){const old=localStorage.getItem(k);try{localStorage.setItem(k,json);return true}catch(e){try{localStorage.removeItem(k);localStorage.setItem(k,json);return true}catch(e2){if(old!==null){try{localStorage.setItem(k,old)}catch(e3){}}return false}}}
-function save(k,v){try{const json=JSON.stringify(k==='lf_products'?productStoragePayload(v):v);if(setStorageReplacing(k,json))return true;throw new Error('quota')}catch(e){if(k!=='lf_products'){alert('تعذر حفظ التغييرات. مساحة التخزين في المتصفح ممتلئة.');return false}return false}}
-function compressDataUrl(src,opts={}){return new Promise(resolve=>{if(typeof src!=='string'||!src.startsWith('data:image/'))return resolve(src);const r=new Image();r.onload=()=>{try{let w=r.naturalWidth||r.width,h=r.naturalHeight||r.height,maxDim=opts.maxDim||900;if(w>maxDim||h>maxDim){const k=Math.min(maxDim/w,maxDim/h);w=Math.max(1,Math.round(w*k));h=Math.max(1,Math.round(h*k))}const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{alpha:false});x.drawImage(r,0,0,w,h);let q=.62,d='';const make=()=>{d=c.toDataURL('image/webp',q);if(!d.startsWith('data:image/webp'))d=c.toDataURL('image/jpeg',q)};make();let guard=0;while(d.length/1024>(opts.targetKB||90)&&q>.3&&guard++<7){q-=.06;make()}resolve(d)}catch(e){resolve(src)}};r.onerror=()=>resolve(src);r.src=src})}
-async function compactProductsAndSave(list){const copy=(Array.isArray(list)?list:[]).map(p=>({...p}));for(const p of copy){const a=Array.isArray(p.mainImages)?p.mainImages:[];const b=Array.isArray(p.subImages)?p.subImages:[];p.mainImages=await Promise.all(a.map(x=>compressDataUrl(x)));p.subImages=await Promise.all(b.map(x=>compressDataUrl(x)));delete p.images}products=copy.map(p=>normalizeProductImages(p));const json=JSON.stringify(productStoragePayload(products));if(setStorageReplacing('lf_products',json)){return true}alert('مساحة التخزين ما زالت ممتلئة. احذفي صورة قديمة أو اثنتين ثم أعيدي المحاولة.');return false}
-function persistProducts(after){const ok=save('lf_products',products);if(ok){if(after)after();return}Promise.resolve().then(async()=>{const done=await compactProductsAndSave(products);if(done&&after)after()})}
-let products=load('lf_products',INITIAL_PRODUCTS),cats=load('lf_cats',INITIAL_CATS),brands=load('lf_brands',{}),orders=load('lf_orders',[]),pass=localStorage.getItem('lf_admin_pass')||'ladies123',openEdits=new Set(),openOrders=new Set();
-function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
-function brandOptions(selected=''){return '<option value="">بدون براند</option>'+Object.keys(brands).map(k=>`<option value="${esc(k)}" ${selected===k?'selected':''}>${esc(brands[k]?.ar||k)}</option>`).join('')}
-function ensureProductBrand(name){const raw=(name||'').trim();if(!raw)return '';const existing=Object.keys(brands).find(k=>k.toLowerCase()===raw.toLowerCase());if(existing)return existing;brands[raw]={ar:raw,en:raw,image:LOGO};save('lf_brands',brands);return raw}
-function addBrand(){const ar=document.getElementById('brandAr')?.value.trim(),en=document.getElementById('brandEn')?.value.trim()||ar;if(!ar)return alert('اكتب اسم البراند');if(brands[ar])return alert('هذا البراند موجود');readOne(document.getElementById('brandImage'),data=>{brands[ar]={ar,en,image:data||LOGO};save('lf_brands',brands);render()})}
-function renameBrand(oldKey){const ar=document.getElementById('brandAr_'+oldKey)?.value.trim();const en=document.getElementById('brandEn_'+oldKey)?.value.trim()||ar;if(!ar)return alert('اكتب اسم البراند');if(ar!==oldKey&&brands[ar])return alert('هذا الاسم موجود لبراند آخر');const b=brands[oldKey]||{};delete brands[oldKey];brands[ar]={...b,ar,en};products.forEach(p=>{if(p.brand===oldKey)p.brand=ar});save('lf_brands',brands);persistProducts(()=>render())}
-function delBrand(k){if(products.some(p=>p.brand===k))return alert('لا يمكن حذف براند مرتبط بمنتجات. عدّلي المنتجات أولًا.');delete brands[k];save('lf_brands',brands);render()}
-function updateBrandImage(k,input){readOne(input,data=>{if(!data)return;brands[k].image=data;save('lf_brands',brands);render()})}
-
-const DEFAULT_HERO_TEXT_STYLE_ADMIN={font:'Tahoma,Arial,sans-serif',color:'#ffffff',opacity:1,bgColor:'#63345e',bgOpacity:.58};
-function getHeroTextStyleAdmin(){
-  const s=load('lf_hero_text_style',DEFAULT_HERO_TEXT_STYLE_ADMIN)||DEFAULT_HERO_TEXT_STYLE_ADMIN;
-  return {font:s.font||DEFAULT_HERO_TEXT_STYLE_ADMIN.font,color:s.color||DEFAULT_HERO_TEXT_STYLE_ADMIN.color,opacity:Math.max(0,Math.min(1,Number(s.opacity??1))),bgColor:s.bgColor||DEFAULT_HERO_TEXT_STYLE_ADMIN.bgColor,bgOpacity:Math.max(0,Math.min(1,Number(s.bgOpacity??DEFAULT_HERO_TEXT_STYLE_ADMIN.bgOpacity)))};
+<style>
+:root{
+  --plum:#63345e;
+  --pink:#e98eae;
+  --cream:#fbf4ec;
+  --line:#eadce3;
+  --green:#718a57;
+  --red:#a33d55;
+  --text:#443542;
 }
-function saveHeroTextStyle(){
-  const font=document.getElementById('heroFontSelect')?.value||DEFAULT_HERO_TEXT_STYLE_ADMIN.font;
-  const color=document.getElementById('heroTextColor')?.value||DEFAULT_HERO_TEXT_STYLE_ADMIN.color;
-  const opacity=Math.max(0,Math.min(100,Number(document.getElementById('heroTextOpacity')?.value||100)))/100;
-  const bgColor=document.getElementById('heroTextBgColor')?.value||DEFAULT_HERO_TEXT_STYLE_ADMIN.bgColor;
-  const bgOpacity=Math.max(0,Math.min(100,Number(document.getElementById('heroTextBgOpacity')?.value||58)))/100;
-  save('lf_hero_text_style',{font,color,opacity,bgColor,bgOpacity});
-  alert('تم حفظ شكل الكتابة وخلفية مربع النص على السلايدات');
-}
-function getHeroSlidesAdmin(){let a=load('lf_hero_slides',null);if(!Array.isArray(a)){const h=load('lf_hero',{logo:LOGO,image:LOGO});a=[{id:Date.now(),image:h.image||LOGO,titleAr:'كل ما تحتاجينه.. في مكان واحد',titleEn:'Everything you need.. in one place',descAr:'منتجات مختارة بعناية لتكملي إطلالتك.',descEn:'Products carefully selected to complete your look.'}];save('lf_hero_slides',a)}return a}
-function addHeroSlide(){const tA=document.getElementById('heroTitleAr')?.value.trim(),tE=document.getElementById('heroTitleEn')?.value.trim()||tA,dA=document.getElementById('heroDescAr')?.value.trim(),dE=document.getElementById('heroDescEn')?.value.trim()||dA;if(!tA)return alert('اكتبي عنوان الشريحة');readOne(document.getElementById('heroSlideImage'),data=>{if(!data)return alert('اختاري صورة للشريحة');const a=getHeroSlidesAdmin();a.push({id:Date.now(),image:data,titleAr:tA,titleEn:tE,descAr:dA,descEn:dE});save('lf_hero_slides',a);render()})}
-function saveHeroSlide(id){const a=getHeroSlidesAdmin(),x=a.find(s=>s.id===id);if(!x)return;x.titleAr=document.getElementById('hsA_'+id).value.trim();x.titleEn=document.getElementById('hsE_'+id).value.trim()||x.titleAr;x.descAr=document.getElementById('hdA_'+id).value.trim();x.descEn=document.getElementById('hdE_'+id).value.trim()||x.descAr;const input=document.getElementById('hi_'+id);if(input?.files?.length){readOne(input,data=>{if(data)x.image=data;save('lf_hero_slides',a);render()})}else{save('lf_hero_slides',a);render()}}
-function deleteHeroSlide(id){if(!confirm('حذف الشريحة؟'))return;save('lf_hero_slides',getHeroSlidesAdmin().filter(x=>x.id!==id));render()}
-// الصور يمكن أن تكون بأي حجم عند الاختيار؛ يتم تصغيرها وضغطها تلقائياً قبل التخزين.
-function compressImage(file,cb,opts={}){const maxDim=opts.maxDim||1000,targetKB=opts.targetKB||120;const reader=new FileReader();reader.onerror=()=>cb('');reader.onload=()=>{const img=new Image();img.onload=()=>{try{let w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;if(!w||!h)return cb('');if(w>maxDim||h>maxDim){const r=Math.min(maxDim/w,maxDim/h);w=Math.max(1,Math.round(w*r));h=Math.max(1,Math.round(h*r))}const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d',{alpha:false});ctx.drawImage(img,0,0,w,h);let data='';let quality=.78;const make=()=>{try{data=c.toDataURL('image/webp',quality);if(!data.startsWith('data:image/webp'))data=c.toDataURL('image/jpeg',quality)}catch(e){data=''}};make();let guard=0;while(data && data.length/1024>targetKB && quality>.35 && guard++<8){quality-=.06;make()}if(data && data.length/1024>targetKB && w>700){const r=.78;w=Math.max(1,Math.round(w*r));h=Math.max(1,Math.round(h*r));c.width=w;c.height=h;ctx.drawImage(img,0,0,w,h);quality=.55;make()}if(data)cb(data);else cb('')}catch(e){cb('')}};img.onerror=()=>cb('');img.src=reader.result};reader.readAsDataURL(file)}
-async function uploadDataUrl(data){
-  if(!data)return '';
-  const token=apiToken?.()||sessionStorage.getItem('lf_admin_token')||'';
-  const m=String(data).match(/^data:([^;]+);base64,(.+)$/); if(!m)return data;
-  const bin=atob(m[2]); const bytes=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
-  const blob=new Blob([bytes],{type:m[1]}); const fd=new FormData(); fd.append('image',blob,'upload.webp');
-  const r=await fetch((window.LF_API_BASE||localStorage.getItem('lf_api_base')||(location.protocol==='file:'?'http://localhost:3000':location.origin)).replace(/\/$/,'')+'/api/admin/uploads/image',{method:'POST',headers:token?{Authorization:'Bearer '+token}:{},body:fd});
-  let d={};try{d=await r.json()}catch{} if(!r.ok)throw new Error(d.error||'UPLOAD_FAILED'); return d.url||data;
-}
-function readImages(input,cb){const fs=[...(input.files||[])];if(!fs.length)return cb([]);const out=new Array(fs.length);let left=fs.length;fs.forEach((f,i)=>compressImage(f,async data=>{try{out[i]=await uploadDataUrl(data)}catch(e){console.warn(e);out[i]=''}if(--left===0){cb(out.filter(Boolean));input.value=''}}))}
-function readOne(input,cb){const f=input.files?.[0];if(!f)return;compressImage(f,async data=>{try{cb(await uploadDataUrl(data))}catch(e){alert('تعذر رفع الصورة: '+e.message)}input.value=''},{maxDim:1400,targetKB:320})}
-async function login(){document.getElementById('app').innerHTML='<div class="login"><h2>دخول لوحة التحكم</h2><p class="small">أدخل بيانات حسابك الإداري.</p><input id="adminEmail" type="email" placeholder="البريد الإلكتروني" autocomplete="username"><input id="p" type="password" placeholder="كلمة المرور" autocomplete="current-password"><button onclick="go()">دخول</button></div>'}
-async function go(){const email=document.getElementById('adminEmail')?.value.trim(),password=document.getElementById('p')?.value||'';if(!email||!password)return alert('أدخل البريد وكلمة المرور');try{const r=await apiFetch('/api/auth/admin-login',{method:'POST',body:JSON.stringify({email,password})});sessionStorage.setItem('lf_admin_token',r.token);sessionStorage.setItem('lf_admin_ok','1');await render()}catch(e){alert('بيانات الدخول غير صحيحة')}}
-async function setupOwner(){const name=document.getElementById('setupName')?.value.trim(),email=document.getElementById('setupEmail')?.value.trim(),password=document.getElementById('setupPassword')?.value||'',confirm=document.getElementById('setupPassword2')?.value||'';if(!name||!email||password.length<12)return alert('أدخل الاسم والإيميل وكلمة مرور من 12 حرفًا على الأقل');if(password!==confirm)return alert('كلمتا المرور غير متطابقتين');try{const r=await apiFetch('/api/admin/bootstrap',{method:'POST',body:JSON.stringify({name,email,password})});sessionStorage.setItem('lf_admin_token',r.token);sessionStorage.setItem('lf_admin_ok','1');alert('تم إنشاء حساب المالك بنجاح');await render()}catch(e){alert('تعذر إنشاء حساب المالك: '+e.message)}}
-async function setupScreen(){document.getElementById('app').innerHTML='<div class="login"><h2>🌸 إعداد Ladies First لأول مرة</h2><p class="small">أنشئ حساب المالك. هذا الحساب سيكون صاحب الصلاحيات الكاملة، ولا توجد كلمة مرور افتراضية.</p><input id="setupName" placeholder="اسم المالك" autocomplete="name"><input id="setupEmail" type="email" placeholder="البريد الإلكتروني" autocomplete="email"><input id="setupPassword" type="password" placeholder="كلمة مرور قوية — 12 حرفًا على الأقل" autocomplete="new-password"><input id="setupPassword2" type="password" placeholder="تأكيد كلمة المرور" autocomplete="new-password"><button onclick="setupOwner()">إنشاء حساب المالك</button></div>'}
-async function ensureLogin(){if(sessionStorage.getItem('lf_admin_token')){try{await apiFetch('/api/me');await render();return}catch{sessionStorage.removeItem('lf_admin_token');sessionStorage.removeItem('lf_admin_ok')}}try{const s=await fetch(API_BASE+'/api/setup/status').then(r=>r.json());if(s.setupRequired){await setupScreen();return}}catch(e){document.getElementById('app').innerHTML='<div class="login"><h2>تعذر الاتصال بالخادم</h2><p class="small">تأكد أن Backend يعمل ثم أعد المحاولة.</p><button onclick="ensureLogin()">إعادة المحاولة</button></div>';return}await login()}
-function parseVariants(v){return String(v||'').split(/[,\n]+/).map(x=>x.trim()).filter(Boolean).map(x=>{const m=x.split(/[:=]/);return {name:String(m[0]||'').trim(),stock:Math.max(0,Number(m.slice(1).join(''))||0)}}).filter(x=>x.name)}
-function renderVariantEditor(key,variants){const vs=Array.isArray(variants)?variants:[];return `<div class="variantEditor" id="variantEditor_${key}">${vs.map((v,i)=>`<div class="variantRow"><input class="vName" value="${esc(v.name)}" placeholder="اسم اللون"><input class="vStock" type="number" min="0" value="${Math.max(0,Number(v.stock)||0)}" placeholder="المخزون"><button type="button" class="danger" onclick="this.parentElement.remove()">حذف</button></div>`).join('')}</div><button type="button" class="pink" onclick="addVariantRow('${key}')">＋ إضافة لون</button>`}
-function addVariantRow(key,name='',stock=0){const box=document.getElementById('variantEditor_'+key);if(!box)return;const row=document.createElement('div');row.className='variantRow';row.innerHTML=`<input class="vName" value="${esc(name)}" placeholder="اسم اللون"><input class="vStock" type="number" min="0" value="${Math.max(0,Number(stock)||0)}" placeholder="المخزون"><button type="button" class="danger" onclick="this.parentElement.remove()">حذف</button>`;box.appendChild(row)}
-function collectVariants(key){const box=document.getElementById('variantEditor_'+key);if(!box)return [];return [...box.querySelectorAll('.variantRow')].map(r=>({name:r.querySelector('.vName')?.value.trim()||'',stock:Math.max(0,Number(r.querySelector('.vStock')?.value)||0)})).filter(v=>v.name)}
-function variantsText(p){return Array.isArray(p.variants)?p.variants.map(v=>`${v.name}: ${Math.max(0,Number(v.stock)||0)}`).join(', '):''}
-function syncStockFromVariants(p){if(Array.isArray(p.variants)&&p.variants.length)p.stock=p.variants.reduce((a,v)=>a+Math.max(0,Number(v.stock)||0),0)}
-const DEFAULT_PACKAGING_OPTIONS=[{id:'clear-ribbon',nameAr:'تغليف شفاف مع شبرة',nameEn:'Clear wrapping with ribbon',price:5,active:true},{id:'paper-ribbon',nameAr:'تغليف ورقي مع شبرة',nameEn:'Paper wrapping with ribbon',price:15,active:true}];
-function getPackagingOptionsAdmin(){let a=load('lf_packaging_options',null);if(!Array.isArray(a)||!a.length){a=DEFAULT_PACKAGING_OPTIONS.map(x=>({...x}));save('lf_packaging_options',a)}return a}
-function savePackagingOptions(){const rows=[...document.querySelectorAll('.packRow')].map((r,i)=>({id:r.dataset.id||('pkg-'+Date.now()+'-'+i),nameAr:r.querySelector('.pkgAr')?.value.trim()||'',nameEn:r.querySelector('.pkgEn')?.value.trim()||'',price:Math.max(0,Number(r.querySelector('.pkgPrice')?.value)||0),active:!!r.querySelector('.pkgActive')?.checked})).filter(x=>x.nameAr||x.nameEn);save('lf_packaging_options',rows);alert('تم حفظ خيارات وأسعار التغليف');render()}
-function addPackagingRow(){const box=document.getElementById('packagingAdminRows');if(!box)return;const id='pkg-'+Date.now();const r=document.createElement('div');r.className='packRow';r.dataset.id=id;r.innerHTML=`<input class="pkgAr" placeholder="اسم التغليف بالعربي"><input class="pkgEn" placeholder="Packaging name English"><input class="pkgPrice" type="number" min="0" step="0.5" value="0"><label><input class="pkgActive" type="checkbox" checked> فعال</label><button type="button" class="danger" onclick="this.parentElement.remove()">حذف</button>`;box.appendChild(r)}
-function addProduct(){const n=document.getElementById('n').value.trim();if(!n)return alert('اكتب اسم المنتج');const mainInput=document.getElementById('mainPhoto'),subInput=document.getElementById('subPhotos');const finish=(mains,subs)=>{const mainImgs=mains.filter(Boolean),subImgs=subs.filter(Boolean);if(!mainImgs.length)return alert('اختاري صورة رئيسية واحدة على الأقل');const price=Number(document.getElementById('pr').value)||0,old=Number(document.getElementById('old').value)||0,cost=Math.max(0,Number(document.getElementById('cost').value)||0),variants=collectVariants('new');const stock=variants.length?variants.reduce((a,v)=>a+v.stock,0):Math.max(0,Number(document.getElementById('stock').value)||0);const typedBrand=document.getElementById('brandNew')?.value.trim();const brand=ensureProductBrand(typedBrand||document.getElementById('brand').value);products.unshift({id:Date.now(),name:n,en:document.getElementById('en').value.trim()||n,price,old,discount:old>price?Math.round((1-price/old)*100):0,onSale:document.getElementById('sale').checked,offerLabel:document.getElementById('offer').checked,cat:document.getElementById('cat').value,brand,desc:document.getElementById('desc').value.trim(),mainImages:mainImgs,subImages:subImgs,images:[...mainImgs,...subImgs],icon:'🛍️',visaDiscount:Math.max(0,Number(document.getElementById('visaDisc').value)||0),cost,stock,variants,top5:document.getElementById('top5')?.checked||false,quickOffer:document.getElementById('quickOffer')?.checked||false,offerExpiry:document.getElementById('offerExpiry').value||'',quickOfferExpiry:document.getElementById('quickOfferExpiry')?.value||''});save('lf_brands',brands);persistProducts(()=>render())};readImages(mainInput,mains=>readImages(subInput,subs=>finish(mains,subs)))}function toggleEdit(id){if(openEdits.has(id))openEdits.delete(id);else openEdits.add(id);render()}
 
-function addStock(id){const p=products.find(x=>x.id===id);if(!p)return;const variants=Array.isArray(p.variants)?p.variants:[];if(variants.length){const raw=document.getElementById('addvariant_'+id)?.value||'';const add=parseVariants(raw);if(!add.length)return alert('اكتب اللون والكمية مثل: أسود: 5');add.forEach(a=>{const v=variants.find(x=>x.name===a.name);if(v)v.stock+=a.stock;else variants.push(a)});p.variants=variants;syncStockFromVariants(p)}else{const n=Math.max(0,Number(document.getElementById('addstock_'+id).value)||0);if(!n)return alert('أدخل كمية أكبر من صفر');p.stock=Math.max(0,Number(p.stock)||0)+n}persistProducts(()=>render())}
-function variantList(p){return Array.isArray(p?.variants)?p.variants.map(v=>({name:String(v?.name||''),stock:Math.max(0,Number(v?.stock)||0)})).filter(v=>v.name):[]}
-function totalStock(p){const vs=variantList(p);return vs.length?vs.reduce((sum,v)=>sum+v.stock,0):Math.max(0,Number(p?.stock)||0)}
-function normalizeProductImages(p){if(!p)return p;const mains=Array.isArray(p.mainImages)?p.mainImages.filter(Boolean):((p.images||[]).filter(Boolean).slice(0,1));const subs=Array.isArray(p.subImages)?p.subImages.filter(Boolean):((p.images||[]).filter(Boolean).slice(1));p.mainImages=mains;p.subImages=subs;p.images=[...mains,...subs];return p}
-function saveEdit(id){
-const p=products.find(x=>x.id===id);if(!p)return;
-const val=(key,def='')=>document.getElementById(key+'_'+id)?.value??def;
-const checked=key=>!!document.getElementById(key+'_'+id)?.checked;
-p.name=val('ar').trim();p.en=val('en').trim();p.price=Number(val('price'))||0;p.old=Number(val('old'))||0;p.discount=p.old>p.price?Math.round((1-p.price/p.old)*100):0;p.cat=val('cat',p.cat);const typedBrand=document.getElementById('brandNew_'+id)?.value.trim();p.brand=ensureProductBrand(typedBrand||document.getElementById('brand_'+id).value);p.onSale=document.getElementById('sale_'+id).checked;p.offerLabel=document.getElementById('offer_'+id).checked;p.visaDiscount=Math.max(0,Number(document.getElementById('visa_'+id).value)||0);p.cost=Math.max(0,Number(document.getElementById('cost_'+id).value)||0);p.top5=document.getElementById('top5_'+id).checked;p.quickOffer=document.getElementById('quickOffer_'+id)?.checked||false;p.offerExpiry=document.getElementById('offerExpiry_'+id).value||'';p.quickOfferExpiry=document.getElementById('quickOfferExpiry_'+id)?.value||'';const variants=collectVariants(String(id));if(variants.length){p.variants=variants;syncStockFromVariants(p)}else{p.variants=[];p.stock=Math.max(0,Number(document.getElementById('stock_'+id).value)||0)}p.desc=val('desc').trim();normalizeProductImages(p);save('lf_brands',brands);persistProducts(()=>{alert('تم حفظ التعديلات');render()})}
-function addMainImages(id,input){readImages(input,imgs=>{if(!imgs.length)return;const p=normalizeProductImages(products.find(x=>x.id===id));if(p){p.mainImages=(p.mainImages||[]).concat(imgs);p.images=[...(p.mainImages||[]),...(p.subImages||[])];persistProducts(()=>render())}})}
-function addSubImages(id,input){readImages(input,imgs=>{if(!imgs.length)return;const p=normalizeProductImages(products.find(x=>x.id===id));if(p){p.subImages=(p.subImages||[]).concat(imgs);p.images=[...(p.mainImages||[]),...(p.subImages||[])];persistProducts(()=>render())}})}
-function replaceAllImages(id,input){readImages(input,imgs=>{const p=products.find(x=>x.id===id);if(!p||!imgs.length)return;const mains=[imgs[0]],subs=imgs.slice(1);p.mainImages=mains;p.subImages=subs;p.images=[...mains,...subs];persistProducts(()=>render())})}
-function removeMainImage(id,i){const p=normalizeProductImages(products.find(x=>x.id===id));if(!p)return;if(p.mainImages.length<=1)return alert('لازم يبقى للمنتج صورة رئيسية واحدة على الأقل');p.mainImages.splice(i,1);p.images=[...p.mainImages,...p.subImages];persistProducts(()=>render())}
-function removeSubImage(id,i){const p=normalizeProductImages(products.find(x=>x.id===id));if(!p)return;p.subImages.splice(i,1);p.images=[...p.mainImages,...p.subImages];persistProducts(()=>render())}
-function setMainImage(id,i){const p=normalizeProductImages(products.find(x=>x.id===id));if(!p||!p.subImages[i])return;const x=p.subImages[i];p.subImages.splice(i,1);p.mainImages.push(x);p.images=[...p.mainImages,...p.subImages];persistProducts(()=>render())}
-function addCategory(){const ar=document.getElementById('catAr').value.trim();const en=document.getElementById('catEn').value.trim()||ar;if(!ar)return alert('اكتب اسم الفئة');if(cats[ar])return alert('هذه الفئة موجودة');const icon=document.getElementById('catIcon').value.trim()||'🛍️';const img=document.getElementById('catImage').files?.length;readOne(document.getElementById('catImage'),data=>{cats[ar]={ar,en,icon,image:data||LOGO};save('lf_cats',cats);render()});if(!img){cats[ar]={ar,en,icon,image:LOGO};save('lf_cats',cats);render()}}
-function delCategory(k){if(Object.keys(cats).length<=1)return alert('يجب أن تبقى فئة واحدة على الأقل');if(products.some(p=>p.cat===k))return alert('لا يمكن حذف فئة تحتوي منتجات. انقل المنتجات أولًا.');delete cats[k];save('lf_cats',cats);render()}
-function setHeroLogo(input){readOne(input,data=>{const h=load('lf_hero',{logo:LOGO,image:LOGO});h.logo=data;save('lf_hero',h);alert('تم حفظ اللوغو. افتح المتجر/حدّث الصفحة لرؤيته.')})}function setHeroImage(input){readOne(input,data=>{const h=load('lf_hero',{logo:LOGO,image:LOGO});h.image=data;save('lf_hero',h);alert('تم حفظ صورة الصفحة الرئيسية.')})}function resetHero(){localStorage.removeItem('lf_hero');alert('تم إرجاع اللوغو والصورة الافتراضية');render()}
-function normalizeOrders(){let changed=false;orders=orders.map(o=>{if(!Array.isArray(o.items))return o;if(!o.inventoryState)o.inventoryState=o.status==='ملغي'?'restored':'deducted';const items=o.items.map(it=>{if(it&&it.name!==undefined&&it.price!==undefined)return {...it,qty:Number(it.qty)||1,price:Number(it.price)||0,cost:Math.max(0,Number(it.cost)||0),visaDiscountPercent:Math.max(0,Number(it.visaDiscountPercent)||0),visaDiscountAmount:Number(it.visaDiscountAmount)||0,lineTotal:Number(it.lineTotal)||((Number(it.price)||0)*(Number(it.qty)||1)-Number(it.visaDiscountAmount||0)),images:Array.isArray(it.images)?it.images:[]};const p=products.find(x=>x.id===it?.id);if(!p)return null;changed=true;const qty=Number(it.qty)||1;return {productId:p.id,name:p.name,en:p.en,cat:p.cat,price:Number(p.price)||0,old:Number(p.old)||0,cost:Math.max(0,Number(p.cost)||0),desc:p.desc||'',images:Array.isArray(p.images)?p.images.slice(0,8):[],qty,visaDiscountPercent:0,visaDiscountAmount:0,lineTotal:(Number(p.price)||0)*qty}}).filter(Boolean);return {...o,items,total:Number(o.total)||items.reduce((s,i)=>s+i.lineTotal,0)}});if(changed)save('lf_orders',orders)}
-function toggleOrder(id){if(openOrders.has(id))openOrders.delete(id);else openOrders.add(id);render()}
-async function stockDeltaForOrder(o,sign){
-  if(!o||!Array.isArray(o.items))return true;
-  try{
-    let touched=false;
-    o.items.forEach(it=>{
-      const pid=it.productId ?? it.id ?? it.product_id;
-      const p=products.find(x=>String(x.id)===String(pid));
-      if(!p)return;
-      const qty=Math.max(0,Number(it.qty)||0),vs=variantList(p);
-      if(vs.length){
-        const wanted=it.variant ?? it.color ?? it.colour ?? it.option ?? it.variantName ?? '';
-        const v=p.variants.find(x=>String(x.name)===String(wanted));
-        if(v){v.stock=Math.max(0,(Number(v.stock)||0)+sign*qty);touched=true;}
-        else if(!wanted){
-          // Legacy orders without a saved variant: fall back to the first matching stock bucket only when there is one.
-          if(vs.length===1){vs[0].stock=Math.max(0,(Number(vs[0].stock)||0)+sign*qty);touched=true;}
-        }
-        p.stock=totalStock(p);
-      }else{
-        p.stock=Math.max(0,(Number(p.stock)||0)+sign*qty);touched=true;
-      }
-    });
-    if(!touched) throw new Error('لم يتم العثور على منتجات الطلب داخل المخزون');
-    if(save('lf_products',products))return true;
-    // Stock changes must still work when the product images make localStorage full.
-    const done=await compactProductsAndSave(products);
-    if(!done)throw new Error('تعذر حفظ المخزون');
-    return true;
-  }catch(e){
-    alert('لم يتم تغيير حالة الطلب: '+(e?.message||'تعذر حفظ المخزون')+'\n\nتأكدي أن المنتجات الموجودة في الطلب ما زالت موجودة.');
-    return false;
-  }
-}
-function logOrderEvent(orderId,from,to,note=''){const events=load('lf_order_events',[]);events.unshift({id:Date.now()+Math.random(),orderId,from:from||'',to:to||'',note,timestamp:Date.now(),date:new Date().toLocaleString('ar-PS')});save('lf_order_events',events.slice(0,2000))}
-async function status(id,v){
-  const o=orders.find(x=>String(x.id)===String(id));if(!o)return;
-  const from=o.status||'جديد';if(from===v)return;
-  if(!o.inventoryState)o.inventoryState=from==='ملغي'?'restored':'deducted';
-  let inventoryChanged=false,delta=0;
-  if(v==='ملغي'&&from!=='ملغي'&&o.inventoryState!=='restored'){delta=+1;inventoryChanged=true;}
-  if(from==='ملغي'&&v!=='ملغي'&&o.inventoryState!=='deducted'){delta=-1;inventoryChanged=true;}
-  if(inventoryChanged){
-    const ok=await stockDeltaForOrder(o,delta);
-    if(!ok){render();return;}
-  }
-  const oldState=o.inventoryState,oldStatus=o.status,oldRestored=o.inventoryRestoredAt,oldCancelled=o.cancelledAt;
-  if(v==='ملغي'){
-    o.inventoryState='restored';o.inventoryRestoredAt=Date.now();o.cancelledAt=Date.now();
-  }else if(from==='ملغي'){
-    o.inventoryState='deducted';o.inventoryRestoredAt=null;o.cancelledAt=null;
-  }
-  o.status=v;o.statusUpdatedAt=Date.now();
-  if(!save('lf_orders',orders)){
-    if(inventoryChanged)await stockDeltaForOrder(o,-delta);
-    o.inventoryState=oldState;o.status=oldStatus;o.inventoryRestoredAt=oldRestored;o.cancelledAt=oldCancelled;
-    render();return;
-  }
-  logOrderEvent(o.id,from,v,v==='ملغي'?'تم إلغاء الطلب وإرجاع الكميات للمخزون واستبعاده من الحسابات والمبيعات':from==='ملغي'?'إعادة تفعيل الطلب وخصم الكميات من المخزون وإعادته للحسابات':'تغيير حالة الطلب');
-  render();
-}
-function changePass(){const x=document.getElementById('np').value;if(x){localStorage.setItem('lf_admin_pass',x);pass=x;document.getElementById('np').value='';alert('تم تغيير كلمة المرور')}}
-function saveStoreUrl(){const v=document.getElementById('storeUrl')?.value.trim();if(!v)return alert('أدخل رابط المتجر');localStorage.setItem('lf_store_url',v);alert('تم حفظ رابط المتجر')}
-function getCoupons(){return load('lf_coupons',[])}
-function addCoupon(){const code=String(document.getElementById('couponCode')?.value||'').trim().toUpperCase().replace(/\s+/g,'');const type=document.getElementById('couponType')?.value||'percent';const value=Math.max(0,Number(document.getElementById('couponValue')?.value)||0);if(!code)return alert('اكتب كود الخصم');if(!value)return alert('أدخل قيمة الخصم أكبر من صفر');if(type==='percent'&&value>100)return alert('نسبة الخصم لا يمكن أن تتجاوز 100%');const cs=getCoupons();if(cs.some(c=>String(c.code).toUpperCase()===code))return alert('هذا الكود موجود مسبقًا');cs.push({code,type,value,active:true,createdAt:Date.now()});if(save('lf_coupons',cs)){document.getElementById('couponCode').value='';document.getElementById('couponValue').value='';render()}}
-function toggleCoupon(code){const cs=getCoupons();const c=cs.find(x=>String(x.code).toUpperCase()===String(code).toUpperCase());if(c){c.active=c.active===false;save('lf_coupons',cs);render()}}
-function deleteCoupon(code){if(!confirm('حذف كود الخصم؟'))return;save('lf_coupons',getCoupons().filter(x=>String(x.code).toUpperCase()!==String(code).toUpperCase()));render()}
-function orderProductNet(o){return Math.max(0,Number(o.subtotal||0)-Number(o.visaDiscount||0)-Number(o.couponDiscount||0))}
-function orderTotalWithShipping(o){return orderProductNet(o)+Math.max(0,Number(o.shippingFee||0))}
-function toggleShippingWaiver(id){const o=orders.find(x=>x.id===id);if(!o)return;o.shippingWaived=!o.shippingWaived;if(o.shippingWaived){o.shippingFeeBeforeWaiver=Number(o.shippingFee||0);o.shippingFee=0}else{o.shippingFee=Number(o.shippingFeeBeforeWaiver||0)}o.total=orderTotalWithShipping(o);save('lf_orders',orders);render()}
-function reportTimestamp(o){return Number(o.createdAt)||Date.parse(o.date)||0}
-function getReportData(){const from=document.getElementById('reportFrom')?.value||'',to=document.getElementById('reportTo')?.value||'';const f=from?new Date(from+'T00:00:00').getTime():0;const t=to?new Date(to+'T23:59:59').getTime():Infinity;const allInRange=orders.filter(o=>reportTimestamp(o)>=f&&reportTimestamp(o)<=t);const list=allInRange.filter(o=>o.status!=='ملغي');let sales=0,cost=0,shipping=0,qty=0;const byProduct={};list.forEach(o=>{sales+=Number(o.total)||0;shipping+=Number(o.shippingFee)||0;(o.items||[]).forEach(it=>{const q=Number(it.qty)||0;qty+=q;cost+=(Number(it.cost)||0)*q;const key=String(it.productId||it.name);if(!byProduct[key])byProduct[key]={name:it.name||'منتج',qty:0,sales:0,cost:0};byProduct[key].qty+=q;byProduct[key].sales+=Number(it.lineTotal)||0;byProduct[key].cost+=(Number(it.cost)||0)*q})});const events=load('lf_order_events',[]).filter(e=>Number(e.timestamp||0)>=f&&Number(e.timestamp||0)<=t);const cancelled=allInRange.filter(o=>o.status==='ملغي');const completed=allInRange.filter(o=>o.status==='تم التوصيل');const active=allInRange.filter(o=>o.status!=='ملغي');const gross=sales-cost;return {list,allInRange,sales,cost,shipping,qty,gross,byProduct,events,cancelled,completed,active}}
-function updateReport(show=true){
- const box=document.getElementById('reportContent');if(!box)return;
- if(!show){box.style.display='none';box.innerHTML='';return;}
- const from=document.getElementById('reportFrom')?.value||'',to=document.getElementById('reportTo')?.value||'';
- if(!from||!to){box.style.display='none';box.innerHTML='';alert('حددي تاريخ البداية وتاريخ النهاية أولًا.');return;}
- if(from>to){box.style.display='none';box.innerHTML='';alert('تاريخ البداية يجب أن يكون قبل تاريخ النهاية.');return;}
- const d=getReportData();
- box.style.display='block';
- const eventRows=d.events.sort((a,b)=>Number(b.timestamp||0)-Number(a.timestamp||0)).map(e=>`<div class="order" style="margin:8px 0"><b>#${esc(e.orderId)}</b> — ${esc(e.date||'')}<br><span>${esc(e.from||'—')} ➜ <b>${esc(e.to||'—')}</b></span><br><span class="small">${esc(e.note||'')}</span></div>`).join('');
- box.innerHTML=`<div class="stat" style="margin-bottom:12px"><b>عدد الحركات:</b> ${d.events.length} &nbsp; | &nbsp; <b>الطلبات الملغاة:</b> ${d.cancelled.length} &nbsp; | &nbsp; <b>تم التوصيل:</b> ${d.completed.length}</div><h3>🔄 تفاصيل الحركات</h3>${eventRows||'<p>لا توجد حركات ضمن الفترة المحددة.</p>'}<p class="small">عند إلغاء الطلب تُعاد الكميات للمخزون ويُستبعد الطلب من المبيعات والحسابات.</p>`;
-}
-function orderTimestamp(o){return Number(o.createdAt)||Date.parse(o.date)||0}
-function getFilteredOrders(){const from=document.getElementById('ordersFrom')?.value||'',to=document.getElementById('ordersTo')?.value||'';const f=from?new Date(from+'T00:00:00').getTime():0;const t=to?new Date(to+'T23:59:59').getTime():Infinity;return orders.filter(o=>orderTimestamp(o)>=f&&orderTimestamp(o)<=t)}
-function renderOrdersList(show=true){const box=document.getElementById('ordersContent');if(!box)return;if(!show){box.style.display='none';box.innerHTML='';return;}const from=document.getElementById('ordersFrom')?.value||'',to=document.getElementById('ordersTo')?.value||'';if(from&&to&&from>to){box.style.display='none';box.innerHTML='';return;}const list=getFilteredOrders();box.style.display='block';box.innerHTML=list.length?list.map(o=>`<div class="order"><div class="orderSummary"><div class="grow"><b>#${o.id}</b> — ${esc(o.name)} — ${esc(o.phone)}<br>${esc(o.city)} — ${esc(o.address)}<br><b>${Number(o.total)||0} ₪</b></div><button onclick="toggleOrder(${o.id})">${openOrders.has(o.id)?'إخفاء التفاصيل':'📋 تفاصيل الطلب'}</button></div>${openOrders.has(o.id)?`<div class="orderDetails open"><button class="printBtn" onclick="printOrder(${o.id})">🖨️ طباعة الطلب</button><p><b>التاريخ:</b> ${esc(o.date||'')}</p><p><b>الدفع:</b> ${o.pay==='visa'?'💳 Visa':'💵 الدفع عند الاستلام'}</p><p><b>التوصيل:</b> ${esc(o.shippingRegionName||'')} — ${o.shippingWaived?'معفى من الرسوم':Number(o.shippingFee||0).toFixed(2)+' ₪'} <button class="green" onclick="toggleShippingWaiver(${o.id})">${o.shippingWaived?'إلغاء الإعفاء':'🎁 إعفاء من التوصيل'}</button></p><p><b>الملاحظات:</b> ${esc(o.notes||'—')}</p><h3>المنتجات</h3>${(o.items||[]).map(it=>`<div class="orderItem"><img src="${safeImg(it.images?.[0],LOGO)}" onerror="this.onerror=null;this.src='${LOGO}'"><div class="grow"><b>${esc(it.name||'منتج')}</b><div>${esc(it.en||'')}</div><div>السعر: ${Number(it.price)||0} ₪ × ${Number(it.qty)||1}</div>${Number(it.visaDiscountPercent)>0?`<div class="visaBadge">💳 خصم Visa ${Number(it.visaDiscountPercent)}% — ${Number(it.visaDiscountAmount||0).toFixed(2)} ₪</div>`:''}<div>${esc(it.desc||'')}</div>${Number(it.packagingPrice)>0?`<div>🎁 ${esc(it.packagingName||'تغليف')} — +${Number(it.packagingPrice).toFixed(2)} ₪ للقطعة</div>`:''}</div><strong>${Number(it.lineTotal)||0} ₪</strong></div>`).join('')||'<p>لا توجد تفاصيل منتجات محفوظة لهذا الطلب.</p>'}</div>`:''}<select onchange="status(${o.id},this.value)"><option ${o.status==='جديد'?'selected':''}>جديد</option><option ${o.status==='قيد التجهيز'?'selected':''}>قيد التجهيز</option><option ${o.status==='تم التوصيل'?'selected':''}>تم التوصيل</option><option ${o.status==='ملغي'?'selected':''}>ملغي</option></select></div>`).join(''):'<p>لا توجد طلبات ضمن الفترة المحددة.</p>';}
-function autoOrdersDate(){const from=document.getElementById('ordersFrom')?.value||'',to=document.getElementById('ordersTo')?.value||'';if(!from||!to||from>to)return;if(document.getElementById('ordersContent')?.style.display!=='none')renderOrdersList(true)}
-function toggleOrdersList(){const box=document.getElementById('ordersContent');if(!box)return;renderOrdersList(box.style.display==='none'||!box.style.display)}
-function autoReportDate(){const from=document.getElementById('reportFrom')?.value||'',to=document.getElementById('reportTo')?.value||'';if(!from||!to)return;if(from>to)return;updateReport(true)}
-function clearReportDates(){closeDatePicker();const a=document.getElementById('reportFrom'),b=document.getElementById('reportTo');if(a)a.value='';if(b)b.value='';updateReport(false)}
-function printOrder(id){const o=orders.find(x=>x.id===id);if(!o)return;const h=load('lf_hero',{logo:LOGO,image:LOGO});const logo=h.logo||LOGO;const storeUrl=localStorage.getItem('lf_store_url')||new URL('index.html',location.href).href;const qr='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(storeUrl);const items=(o.items||[]).map(it=>`<div class="item"><img src="${it.images?.[0]||logo}"><div><b>${esc(it.name||'منتج')}</b><div>${esc(it.variant||'')}</div><div>${Number(it.price)||0} ₪ × ${Number(it.qty)||1}</div>${Number(it.packagingPrice)>0?`<div>🎁 ${esc(it.packagingName||'تغليف')} +${Number(it.packagingPrice).toFixed(2)} ₪</div>`:''}</div><strong>${Number(it.lineTotal)||0} ₪</strong></div>`).join('');const w=window.open('','_blank');if(!w)return alert('اسمحي بفتح نافذة الطباعة من المتصفح');w.document.write(`<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><title>طلب #${o.id}</title><link rel="stylesheet" href="admin.css"><style id="lf-inline-css">/* ---- extracted style block 1 ---- */
-:root{--pink:#e98eae;--plum:#63345e;--cream:#fbf4ec;--line:#eadce3;--green:#718a57;--red:#a33d55}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:#443542;font-family:Arial,Tahoma}.top{background:var(--plum);color:#fff;padding:18px}.nav{max-width:1150px;margin:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.nav b{font-size:20px;margin-inline-end:auto}.nav button,.nav a{padding:10px 14px;border:0;border-radius:10px;background:#fff;color:var(--plum);text-decoration:none;cursor:pointer}.wrap{max-width:1150px;margin:20px auto;padding:0 15px}.box,.login{background:#fff;padding:20px;border-radius:18px;box-shadow:0 8px 25px #63345e12;margin-bottom:18px}input,select,textarea{width:100%;padding:11px;margin:5px 0 10px;border:1px solid #e5d8e0;border-radius:10px}button{padding:11px 16px;border:0;border-radius:10px;background:var(--plum);color:#fff;cursor:pointer}.pink{background:var(--pink)}.danger{background:var(--red)}.green{background:var(--green)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:#f7d8e3;padding:18px;border-radius:15px}.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}.product{border:1px solid #eee1e8;border-radius:14px;padding:15px;margin:10px 0}.productHead{display:grid;grid-template-columns:68px minmax(0,1fr) auto auto auto;align-items:center;gap:10px}.productHead .grow{min-width:0}.productHead .grow b{display:block;white-space:normal;word-break:normal;overflow-wrap:anywhere}.soldAdminBadge{display:inline-flex;align-items:center;background:#e3133a;color:#fff;border-radius:14px;padding:9px 14px;font-size:16px;font-weight:900;white-space:nowrap;box-shadow:0 5px 14px #e3133a55;border:2px solid #ffb3c2}.stockBadge{display:inline-flex;align-items:center;background:#f4efe2;color:#665b42;border:1px solid #ddd0af;border-radius:10px;padding:5px 8px;font-size:11px;font-weight:bold;white-space:nowrap}.variantEditor{display:flex;flex-direction:column;gap:8px;margin:8px 0}.variantRow{display:grid;grid-template-columns:1fr 120px auto;gap:8px;align-items:center}.variantRow input{margin:0}.stockQuick{display:flex;gap:8px;align-items:center;background:#eef7e9;padding:10px;border-radius:10px;margin:10px 0}.stockQuick input{margin:0;max-width:180px}.visaBadge{display:inline-flex;align-items:center;background:#eef7e9;color:#55713f;border:1px solid #cbdcbf;border-radius:10px;padding:4px 7px;font-size:11px;font-weight:bold;white-space:nowrap}.visaBox{background:#eef7e9;padding:10px;border-radius:10px;color:#55713f;font-weight:bold}.productHead .grow{flex:1}.productAdminThumb{width:68px;height:68px;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#f5e1e8;flex:none}.gallery{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.gallery img{width:75px;height:75px;object-fit:cover;border-radius:10px}.muted{font-size:12px;color:#777}.edit{display:none;background:#f8edf2;padding:15px;border-radius:14px;margin-top:12px}.edit.open{display:block}.order{border:1px solid #eee1e8;border-radius:14px;padding:15px;margin:10px 0}.orderSummary{display:flex;align-items:center;gap:12px}.orderSummary .grow{flex:1}.orderDetails{display:none;background:#fff7fa;padding:14px;border-radius:14px;margin-top:12px}.orderDetails.open{display:block}.orderItem{display:flex;gap:12px;align-items:center;border-bottom:1px solid #eee;padding:10px 0}.orderItem img{width:78px;height:78px;object-fit:cover;border-radius:12px;background:#f4e4eb}.orderItem .grow{flex:1}.thumb{width:90px;height:90px;object-fit:cover;border-radius:12px;background:#f5e1e8}.previewLogo{width:120px;height:120px;object-fit:contain;border:1px solid var(--line);border-radius:16px;background:#fff}.small{font-size:12px;color:#777}.couponAdmin{background:#fff7fa;border:1px solid #eadce3;border-radius:14px;padding:15px;margin-top:10px}.couponAdmin{overflow-x:auto}.couponAdmin table{width:100%;min-width:620px;border-collapse:collapse}.couponAdmin th,.couponAdmin td{padding:8px;border-bottom:1px solid #eadce3;text-align:right}.printBtn{background:#4d7a8a}.anchor{scroll-margin-top:80px}@media(max-width:700px){.grid{grid-template-columns:1fr}.row{display:block}.nav b{width:100%;margin:0 0 5px}.productHead{grid-template-columns:56px minmax(0,1fr);align-items:start}.productHead .productAdminThumb{width:56px;height:56px}.productHead>button,.productHead>strong,.productHead>.visaBadge{grid-column:auto}.productHead>button{padding:8px 10px}.productHead>.grow{grid-column:2}.productHead>strong{grid-column:2}.productHead>.visaBadge{grid-column:2;justify-self:start}}
-.packRow{display:grid;grid-template-columns:1.2fr 1.2fr .6fr auto auto;gap:8px;align-items:center;background:#fff7fa;border:1px solid #eadce3;border-radius:12px;padding:10px;margin:7px 0}.packRow input{margin:0}@media(max-width:700px){.packRow{grid-template-columns:1fr 1fr}.packRow button{grid-column:auto}}.socialAdminRow{display:grid;grid-template-columns:44px 1fr 2fr auto;gap:8px;align-items:center;background:#fff7fa;border:1px solid #eadce3;border-radius:12px;padding:10px;margin:7px 0}.socialAdminIcon{font-size:22px;text-align:center}.userAdmin{border:1px solid #eadce3;border-radius:14px;padding:13px;margin:9px 0;background:#fff}.userHead{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.userHead .grow{flex:1;min-width:180px}.userMeta{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:9px}.userMeta div{background:#faf5f8;border-radius:9px;padding:8px;font-size:12px}.adminCollapsible{display:none}.adminCollapsible.open{display:block}.userEditGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.userEditGrid input,.userEditGrid select{margin:0}.userActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}@media(max-width:700px){.userEditGrid{grid-template-columns:1fr}}@media(max-width:700px){.socialAdminRow{grid-template-columns:36px 1fr}.socialAdminRow input,.socialAdminRow label,.socialAdminRow button{grid-column:1/-1}.userMeta{grid-template-columns:1fr 1fr}}
+*{box-sizing:border-box}
 
-/* ---- extracted style block 2 ---- */
-.customDateInput{background:#fff;cursor:pointer!important}
-.customDateInput::placeholder{color:#8b7887}
-#customDatePicker{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;padding:18px}
-#customDatePicker.open{display:flex}
-.datePickerBox{width:min(360px,94vw);background:#fff;border-radius:20px;box-shadow:0 18px 60px #0004;padding:16px;direction:rtl}
-.datePickerHead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
-.datePickerHead button{width:40px;height:40px;border:1px solid #eadce3;background:#fff;border-radius:12px;color:#63345e;font-size:22px}
-.datePickerMonth{font-weight:800;color:#63345e;font-size:17px}
-.datePickerWeek{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:5px;color:#8a7184;font-size:12px;text-align:center}
-.datePickerGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.datePickerGrid button{height:40px;border:1px solid #eadce3;background:#fff;border-radius:10px;font-weight:700;color:#44323f}
-.datePickerGrid button:hover,.datePickerGrid button:active{background:#f5e4ee;color:#63345e}
-.datePickerGrid button.today{border-color:#63345e;color:#63345e}
-.datePickerGrid button.selected{background:#63345e;color:#fff;border-color:#63345e}
-.datePickerHint{text-align:center;color:#8a7184;font-size:12px;margin-top:10px}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family:Arial,Tahoma,sans-serif;
+}
 
-/* ---- extracted style block 3 ---- */
-body{font-family:Arial,Tahoma;margin:0;background:#fff;color:#3f3340}.page{max-width:760px;margin:auto;padding:30px}.head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #63345e;padding-bottom:18px}.head img{width:100px;height:100px;object-fit:contain}.brand{color:#63345e;font-size:28px;font-weight:700}.qr{width:110px;height:110px;object-fit:contain}.meta{background:#fbf4ec;border-radius:14px;padding:15px;margin:18px 0}.item{display:flex;gap:14px;align-items:center;border-bottom:1px solid #ddd;padding:12px 0}.item img{width:75px;height:75px;object-fit:cover;border-radius:10px}.item div{flex:1}.total{font-size:22px;font-weight:bold;text-align:left;margin-top:20px;color:#63345e}.foot{text-align:center;margin-top:30px;color:#777}@media print{.page{padding:10mm}.noPrint{display:none}}
-.permGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:12px 0}.permGrid label{background:#fff;border:1px solid #eadce3;border-radius:10px;padding:9px}.userActions{display:flex;gap:8px;flex-wrap:wrap}.visaBadge{display:inline-block;padding:3px 8px;border-radius:999px;background:#efe4f0}.soldAdminBadge{display:inline-block;padding:3px 8px;border-radius:999px}
-</style><meta name="theme-color" content="#63345e"></head><body><div class="page"><div class="head"><div><div class="brand">Ladies First</div><div>كل ما تحتاجينه.. في مكان واحد</div></div><img src="${logo}"><img class="qr" src="${qr}"></div><h2>فاتورة / تفاصيل الطلب #${o.id}</h2><div class="meta"><b>التاريخ:</b> ${esc(o.date||'')}<br><b>الاسم:</b> ${esc(o.name||'')}<br><b>الجوال:</b> ${esc(o.phone||'')}<br><b>المدينة:</b> ${esc(o.city||'')}<br><b>العنوان:</b> ${esc(o.address||'')}<br><b>الدفع:</b> ${o.pay==='visa'?'Visa':'الدفع عند الاستلام'}<br><b>التوصيل:</b> ${esc(o.shippingRegionName||'')} — ${o.shippingWaived?'معفى':'+'+Number(o.shippingFee||0).toFixed(2)+' ₪'}${o.couponDiscount?`<br><b>كود الخصم:</b> ${esc(o.couponCode)} — خصم ${Number(o.couponDiscount).toFixed(2)} ₪`:''}</div><h3>المنتجات</h3>${items}<div class="total">الإجمالي: ${Number(o.total||0).toFixed(2)} ₪</div><div class="foot">شكرًا لاختيارك Ladies First 🌸</div><button class="noPrint" onclick="window.print()">🖨️ طباعة</button></div></body></html>`);w.document.close();w.focus()}
-function notifyWait(wid){const w=load('lf_waitlist',[]).find(x=>x.id===wid);if(!w)return;const p=products.find(x=>x.id===w.productId);const name=p?.name||w.productName||'المنتج';const msg=`💕 مرحبًا سيدتي ${w.name} 🌸\nالمنتج الذي طلبتِ إشعارك عند توفره أصبح متوفرًا الآن: ${name}\nيسعدنا خدمتك 💕`;window.open('https://wa.me/'+String(w.phone).replace(/^0/,'970')+'?text='+encodeURIComponent(msg),'_blank');}
-function removeWait(id){let w=load('lf_waitlist',[]).filter(x=>x.id!==id);save('lf_waitlist',w);render()}
-let activeDateField=null,pickerMonth=new Date();
-function isoDateLocal(d){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`}
-function parsePickerValue(v){if(!v)return new Date();const d=new Date(v+'T00:00:00');return isNaN(d.getTime())?new Date():d}
-function openDatePicker(id){const el=document.getElementById(id);if(!el)return;activeDateField=id;pickerMonth=parsePickerValue(el.value);pickerMonth.setDate(1);renderDatePicker();document.getElementById('customDatePicker')?.classList.add('open')}
-function closeDatePicker(){activeDateField=null;document.getElementById('customDatePicker')?.classList.remove('open')}
-function changePickerMonth(delta){pickerMonth.setMonth(pickerMonth.getMonth()+delta);renderDatePicker()}
-function pickDateDay(day){if(!activeDateField)return;const el=document.getElementById(activeDateField);if(!el)return;const d=new Date(pickerMonth.getFullYear(),pickerMonth.getMonth(),day);el.value=isoDateLocal(d);el.dispatchEvent(new Event('change',{bubbles:true}));closeDatePicker()}
-function renderDatePicker(){const head=document.getElementById('datePickerMonth'),grid=document.getElementById('datePickerGrid');if(!head||!grid)return;const names=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];head.textContent=`${names[pickerMonth.getMonth()]} ${pickerMonth.getFullYear()}`;const y=pickerMonth.getFullYear(),m=pickerMonth.getMonth(),first=new Date(y,m,1),days=new Date(y,m+1,0).getDate();let start=(first.getDay()+1)%7;let html='';for(let i=0;i<start;i++)html+='<span></span>';const today=isoDateLocal(new Date()),selected=document.getElementById(activeDateField)?.value||'';for(let d=1;d<=days;d++){const iso=isoDateLocal(new Date(y,m,d));const cls=[iso===today?'today':'',iso===selected?'selected':''].filter(Boolean).join(' ');html+=`<button type="button" class="${cls}" onclick="pickDateDay(${d})">${d}</button>`}grid.innerHTML=html}
-const DEFAULT_SOCIAL_ADMIN={whatsapp:{label:'واتساب',icon:'fa-brands fa-whatsapp',url:'https://wa.me/972562499924',enabled:true,cls:'social-wa'},instagram:{label:'Instagram',icon:'fa-brands fa-instagram',url:'',enabled:true,cls:'social-instagram'},snapchat:{label:'Snapchat',icon:'fa-brands fa-snapchat',url:'',enabled:true,cls:'social-snapchat'},facebook:{label:'Facebook',icon:'fa-brands fa-facebook',url:'',enabled:true,cls:'social-facebook'},tiktok:{label:'TikTok',icon:'fa-brands fa-tiktok',url:'',enabled:true,cls:'social-tiktok'}};
-function getSocialAdmin(){const x=load('lf_social_links',null);const out={...DEFAULT_SOCIAL_ADMIN};if(x&&typeof x==='object')Object.keys(out).forEach(k=>out[k]={...out[k],...(x[k]||{})});out.whatsapp.url=out.whatsapp.url||'https://wa.me/972562499924';return out}
-function saveSocialAdmin(){const links=getSocialAdmin();Object.keys(links).forEach(k=>{const r=document.querySelector(`[data-social="${k}"]`);if(!r)return;links[k].url=r.querySelector('.socialUrl')?.value.trim()||'';links[k].label=r.querySelector('.socialLabel')?.value.trim()||links[k].label;links[k].enabled=!!r.querySelector('.socialEnabled')?.checked});save('lf_social_links',links);alert('تم حفظ روابط التواصل الاجتماعي');render()}
-function socialAdminHtml(){const x=getSocialAdmin();return `<div class="box anchor adminCollapsible" id="socialSection"><h2>📱 التواصل معنا</h2><p class="small">أضيفي رابط كل صفحة. واتساب مثبت على الرقم المعتمد 0562499924 ويمكن تعديل الرابط مستقبلًا.</p>${Object.entries(x).map(([k,v])=>`<div class="socialAdminRow" data-social="${k}"><div class="socialAdminIcon"><i class="${esc(v.icon)}"></i></div><input class="socialLabel" value="${esc(v.label)}" placeholder="اسم المنصة"><input class="socialUrl" value="${esc(v.url||'')}" placeholder="رابط الصفحة — مثال https://..."><label><input class="socialEnabled" type="checkbox" ${v.enabled!==false?'checked':''}> إظهار في الشريط الجانبي</label></div>`).join('')}<button class="green" onclick="saveSocialAdmin()">💾 حفظ روابط التواصل</button></div>`}
-function getRegisteredUsers(){let users=load('lf_users',[]);const current=load('lf_account',null);if(current&&!users.some(u=>String(u.contact||'').toLowerCase()===String(current.contact||'').toLowerCase()&&u.type===current.type)){users=[{...current,id:Date.now(),updatedAt:Date.now()},...users];save('lf_users',users)}return Array.isArray(users)?users:[]}
-function resetUserPassword(id){const users=getRegisteredUsers(),u=users.find(x=>String(x.id)===String(id));if(!u)return;const temp='LF'+Math.floor(100000+Math.random()*900000);u.password=temp;u.updatedAt=Date.now();save('lf_users',users);const a=load('lf_account',null);if(a&&String(a.id||'')===String(u.id))save('lf_account',{...a,password:temp});alert(`تم إصدار كلمة مرور مؤقتة للمستخدم ${u.name||''}:\n${temp}\nأرسليها له بشكل آمن.`);render()}
-function updateRegisteredUser(id){const users=getRegisteredUsers(),u=users.find(x=>String(x.id)===String(id));if(!u)return;const name=document.getElementById('userName_'+id)?.value.trim(),contact=document.getElementById('userContact_'+id)?.value.trim(),gender=document.getElementById('userGender_'+id)?.value||'female',age=Math.max(13,Math.min(120,Number(document.getElementById('userAge_'+id)?.value)||0));if(!name||!contact||!age)return alert('يرجى تعبئة الاسم ووسيلة التواصل والعمر');u.name=name;u.contact=contact;u.gender=gender;u.age=age;u.updatedAt=Date.now();save('lf_users',users);const a=load('lf_account',null);if(a&&String(a.id||'')===String(u.id))save('lf_account',{...a,name,contact,gender,age,updatedAt:u.updatedAt});alert('تم حفظ بيانات المستخدم بنجاح');render()}
-function toggleAdminPanel(id){const el=document.getElementById(id);if(!el)return;const willOpen=!el.classList.contains('open');document.querySelectorAll('.adminCollapsible').forEach(x=>x.classList.remove('open'));if(willOpen){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'start'})}}
-let currentAdminUser=null;
-const ADMIN_PERMS=[['dashboard','لوحة المعلومات'],['products','المنتجات والمخزون'],['orders','الطلبات'],['users','المستخدمون'],['coupons','أكواد الخصم'],['settings','إعدادات المتجر'],['media','رفع الصور'],['waitlist','قائمة الانتظار'],['reports','التقارير'],['backup','النسخ الاحتياطي']];
-function adminsAdminHtml(){if(!currentAdminUser||Number(currentAdminUser.is_owner)!==1)return '';return `<div class="box anchor adminCollapsible" id="adminsSection"><h2>🛡️ حسابات الإداريين</h2><p class="small">حسابك هو المالك بصلاحية كاملة. يمكنك إنشاء حسابات إدارية وتحديد ما يستطيع كل إداري الوصول إليه. الإداريون لا يستطيعون تعديل حساب المالك أو إنشاء مالك آخر.</p><div class="box" style="background:#fff7fa"><h3>＋ إنشاء حساب إداري</h3><div class="row"><input id="admName" placeholder="اسم الإداري"><input id="admContact" placeholder="الهاتف أو وسيلة التواصل"><input id="admEmail" type="email" placeholder="البريد الإلكتروني"><input id="admPassword" type="password" placeholder="كلمة المرور — 8 أحرف على الأقل"></div><div class="permGrid">${ADMIN_PERMS.map(([k,l])=>`<label><input type="checkbox" id="newPerm_${k}" checked> ${l}</label>`).join('')}</div><button class="pink" onclick="createAdminUser()">إنشاء الحساب الإداري</button></div><div id="adminsList"><p>جارٍ تحميل الإداريين...</p></div></div>`}
-async function loadAdminManagement(){const nav=document.getElementById('adminsNav');if(!nav)return;try{if(sessionStorage.getItem('lf_local_admin_mode')==='1'){currentAdminUser=localCurrentUserById(currentAdminUser?.id)||currentAdminUser;if(Number(currentAdminUser?.is_owner)!==1){nav.style.display='none';return}nav.style.display='inline-flex';const list=document.getElementById('adminsList');if(!list)return;const admins=[{id:'local-owner',name:localOwner()?.name||'المالك',email:localOwner()?.email||'',contact:localOwner()?.email||'',is_owner:1,active:1,permissions:{'*':true}},...localAdmins()];list.innerHTML=admins.map(a=>{const p=a.permissions||{};const owner=Number(a.is_owner)===1;return `<div class="userAdmin"><div class="userHead"><div class="grow"><b>${esc(a.name)}</b> ${owner?'<span class="visaBadge">OWNER</span>':(a.active!==false?'<span class="stockBadge">فعال</span>':'<span class="soldAdminBadge">معطل</span>')}<div class="muted">${esc(a.email||a.contact||'')}</div></div></div>${owner?'<p class="small">هذا حساب المالك — جميع الصلاحيات مفعلة ولا يمكن حذفه.</p>':`<div class="userEditGrid"><input id="admEditName_${a.id}" value="${esc(a.name)}" placeholder="الاسم"><input id="admEditContact_${a.id}" value="${esc(a.contact||'')}" placeholder="وسيلة التواصل"><input id="admEditEmail_${a.id}" value="${esc(a.email||'')}" placeholder="البريد"><input id="admEditPassword_${a.id}" type="password" placeholder="كلمة مرور جديدة (اختياري)"></div><div class="permGrid">${ADMIN_PERMS.map(([k,l])=>`<label><input type="checkbox" id="admPerm_${a.id}_${k}" ${p[k]===true?'checked':''}> ${l}</label>`).join('')}</div><div class="userActions"><button class="green" onclick="saveAdminUser('${a.id}')">💾 حفظ الإداري</button><button class="danger" onclick="disableAdminUser('${a.id}')">${a.active!==false?'تعطيل الحساب':'تفعيل الحساب'}</button></div>`}</div>`}).join('');return}
-const me=await apiFetch('/api/me');currentAdminUser=me.user;if(Number(currentAdminUser.is_owner)!==1){nav.style.display='none';return}nav.style.display='inline-flex';const sec=document.getElementById('adminsSection');if(!sec)return;const r=await apiFetch('/api/admin/admins');const admins=r.admins||[];const list=document.getElementById('adminsList');list.innerHTML=admins.map(a=>{const p=a.permissions||{};const owner=Number(a.is_owner)===1;return `<div class="userAdmin"><div class="userHead"><div class="grow"><b>${esc(a.name)}</b> ${owner?'<span class="visaBadge">OWNER</span>':(Number(a.active)?'<span class="stockBadge">فعال</span>':'<span class="soldAdminBadge">معطل</span>')}<div class="muted">${esc(a.email||a.contact)}</div></div></div>${owner?'<p class="small">هذا حساب المالك — جميع الصلاحيات مفعلة ولا يمكن حذفه من الإداريين.</p>':`<div class="userEditGrid"><input id="admEditName_${a.id}" value="${esc(a.name)}" placeholder="الاسم"><input id="admEditContact_${a.id}" value="${esc(a.contact)}" placeholder="وسيلة التواصل"><input id="admEditEmail_${a.id}" value="${esc(a.email||'')}" placeholder="البريد"><input id="admEditPassword_${a.id}" type="password" placeholder="اتركيه فارغًا دون تغيير كلمة المرور"></div><div class="permGrid">${ADMIN_PERMS.map(([k,l])=>`<label><input type="checkbox" id="admPerm_${a.id}_${k}" ${p[k]===true?'checked':''}> ${l}</label>`).join('')}</div><div class="userActions"><button class="green" onclick="saveAdminUser('${a.id}')">💾 حفظ الإداري</button><button class="danger" onclick="disableAdminUser('${a.id}')">${Number(a.active)?'تعطيل الحساب':'تفعيل الحساب'}</button></div>`}</div>`}).join('')||'<p>لا يوجد إداريون.</p>';}catch(e){console.warn(e.message)}}
-function localCurrentUserById(id){if(id==='local-owner')return localAdminUser();return localAdmins().find(a=>String(a.id)===String(id))||null}
-async function createAdminUser(){const name=document.getElementById('admName')?.value.trim(),contact=document.getElementById('admContact')?.value.trim(),email=document.getElementById('admEmail')?.value.trim(),password=document.getElementById('admPassword')?.value||'';if(!name||!contact||!email||password.length<8)return alert('أكملي الاسم ووسيلة التواصل والإيميل وكلمة مرور من 8 أحرف على الأقل');const permissions={};for(const [k] of ADMIN_PERMS)permissions[k]=!!document.getElementById('newPerm_'+k)?.checked;if(sessionStorage.getItem('lf_local_admin_mode')==='1'){const a=localAdmins();if(a.some(x=>String(x.email).toLowerCase()===email.toLowerCase()))return alert('هذا البريد مستخدم بالفعل');const salt=crypto.randomUUID?crypto.randomUUID():String(Date.now());const hash=await hashLocalPassword(password,salt);a.push({id:'local-admin-'+Date.now()+Math.random().toString(36).slice(2,7),name,contact,email,salt,hash,permissions,active:true,createdAt:Date.now()});saveLocalAdmins(a);alert('تم إنشاء حساب الموظف وصلاحياته محليًا');['admName','admContact','admEmail','admPassword'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=''});await loadAdminManagement();return}try{await apiFetch('/api/admin/admins',{method:'POST',body:JSON.stringify({name,contact,email,password,permissions})});alert('تم إنشاء الحساب الإداري');document.getElementById('admName').value='';document.getElementById('admContact').value='';document.getElementById('admEmail').value='';document.getElementById('admPassword').value='';await loadAdminManagement()}catch(e){alert('تعذر إنشاء الحساب: '+e.message)}}
-async function saveAdminUser(id){const body={name:document.getElementById('admEditName_'+id)?.value.trim(),contact:document.getElementById('admEditContact_'+id)?.value.trim(),email:document.getElementById('admEditEmail_'+id)?.value.trim(),permissions:{}};for(const [k] of ADMIN_PERMS)body.permissions[k]=!!document.getElementById('admPerm_'+id+'_'+k)?.checked;const pw=document.getElementById('admEditPassword_'+id)?.value||'';if(sessionStorage.getItem('lf_local_admin_mode')==='1'){const a=localAdmins(),i=a.findIndex(x=>String(x.id)===String(id));if(i<0)return;if(body.email&&a.some((x,j)=>j!==i&&String(x.email).toLowerCase()===body.email.toLowerCase()))return alert('هذا البريد مستخدم بالفعل');Object.assign(a[i],{name:body.name,contact:body.contact,email:body.email,permissions:body.permissions});if(pw){if(pw.length<8)return alert('كلمة المرور يجب أن تكون 8 أحرف على الأقل');a[i].salt=crypto.randomUUID?crypto.randomUUID():String(Date.now());a[i].hash=await hashLocalPassword(pw,a[i].salt)}saveLocalAdmins(a);alert('تم حفظ بيانات وصلاحيات الموظف');await loadAdminManagement();return}try{if(pw)body.password=pw;await apiFetch('/api/admin/admins/'+encodeURIComponent(id),{method:'PATCH',body:JSON.stringify(body)});alert('تم حفظ صلاحيات الإداري');await loadAdminManagement()}catch(e){alert('تعذر الحفظ: '+e.message)}}
-async function disableAdminUser(id){if(!confirm('هل تريد تغيير حالة حساب هذا الموظف؟'))return;if(sessionStorage.getItem('lf_local_admin_mode')==='1'){const a=localAdmins(),i=a.findIndex(x=>String(x.id)===String(id));if(i<0)return;a[i].active=a[i].active===false;saveLocalAdmins(a);await loadAdminManagement();return}try{const r=await apiFetch('/api/admin/admins');const a=(r.admins||[]).find(x=>String(x.id)===String(id));if(!a)return;await apiFetch('/api/admin/admins/'+encodeURIComponent(id),{method:'PATCH',body:JSON.stringify({active:!Number(a.active)})});await loadAdminManagement()}catch(e){alert('تعذر تغيير حالة الحساب: '+e.message)}}
-function usersAdminHtml(){const q=(document.getElementById('userSearch')?.value||'').trim().toLowerCase();return `<div class="box anchor adminCollapsible" id="usersSection"><h2>👥 المستخدمون المسجلون</h2><p class="small">يمكن البحث بالإيميل أو رقم الهاتف. ويمكن تعديل بيانات المستخدم مباشرة من هنا.</p><input id="userSearch" value="${esc(q)}" oninput="document.getElementById('usersList').innerHTML=usersListHtml()" placeholder="ابحثي بالإيميل أو رقم الهاتف"><div id="usersList">${usersListHtml()}</div></div>`}
-function usersListHtml(){const q=(document.getElementById('userSearch')?.value||'').trim().toLowerCase();const users=getRegisteredUsers().filter(u=>!q||String(u.contact||'').toLowerCase().includes(q));if(!users.length)return '<p>لا توجد حسابات مطابقة.</p>';return users.map(u=>`<div class="userAdmin"><div class="userHead"><div class="grow"><b>${esc(u.name||'—')}</b><div class="muted">${u.type==='email'?'✉️':'📱'} ${esc(u.contact||'')}</div></div></div><div class="userMeta"><div>الجنس: <b>${u.gender==='male'?'ذكر':'أنثى'}</b></div><div>العمر: <b>${Number(u.age)||'—'}</b></div><div>التسجيل: <b>${u.createdAt?new Date(u.createdAt).toLocaleDateString('ar-PS'):'—'}</b></div><div>آخر تحديث: <b>${u.updatedAt?new Date(u.updatedAt).toLocaleDateString('ar-PS'):'—'}</b></div></div><div class="userEditGrid"><input id="userName_${esc(u.id)}" value="${esc(u.name||'')}" placeholder="الاسم"><input id="userContact_${esc(u.id)}" value="${esc(u.contact||'')}" placeholder="الإيميل أو الهاتف"><select id="userGender_${esc(u.id)}"><option value="female" ${u.gender!=='male'?'selected':''}>أنثى</option><option value="male" ${u.gender==='male'?'selected':''}>ذكر</option></select><input id="userAge_${esc(u.id)}" type="number" min="13" max="120" value="${Number(u.age)||''}" placeholder="العمر"></div><div class="userActions"><button class="green" onclick="updateRegisteredUser('${esc(u.id)}')">💾 حفظ بيانات المستخدم</button><button class="pink" onclick="resetUserPassword('${esc(u.id)}')">🔑 استرجاع/إعادة كلمة المرور</button></div></div>`).join('')}
+button{
+  border:0;
+  border-radius:10px;
+  padding:10px 15px;
+  background:var(--plum);
+  color:white;
+  cursor:pointer;
+}
 
-function automationAdminHtml(){if(!currentAdminUser||Number(currentAdminUser.is_owner)!==1)return '';const w=load('lf_whatsapp_automation',{enabled:false,abandonedEnabled:true,abandonedAfterDays:7,lowStockEnabled:true,lowStockThreshold:2,cooldownDays:7,languageCode:'ar'});const p=load('lf_loyalty',{enabled:false,earnMode:'order',pointsPerOrder:10,amountPerPoint:10,pointsPerAmount:1,pointValue:0.1,redeemEnabled:true,awardOn:'delivered'});return `<div class="box anchor adminCollapsible" id="automationSection"><h2>🤖 الأتمتة والولاء</h2><div class="box" style="background:#fff7fa"><h3>💬 رسائل واتساب تلقائية</h3><p class="small">تعمل فقط للعملاء الذين وافقوا على رسائل واتساب. للإرسال التلقائي الحقيقي يجب إعداد WhatsApp Cloud API وقوالب Meta المعتمدة.</p><label><input id="waAutoEnabled" type="checkbox" ${w.enabled?'checked':''}> تفعيل النظام</label><br><label><input id="waAbandonedEnabled" type="checkbox" ${w.abandonedEnabled!==false?'checked':''}> تذكير السلة المتروكة</label><div class="row"><label>بعد كم يوم؟<input id="waAbandonedDays" type="number" min="1" max="90" value="${Number(w.abandonedAfterDays)||7}"></label><label><input id="waLowEnabled" type="checkbox" ${w.lowStockEnabled!==false?'checked':''}> تنبيه قرب نفاد صنف في السلة</label><label>حد المخزون<input id="waLowThreshold" type="number" min="0" max="100" value="${Number(w.lowStockThreshold)||2}"></label><label>مدة منع التكرار بالأيام<input id="waCooldown" type="number" min="1" max="90" value="${Number(w.cooldownDays)||7}"></label></div><button class="green" onclick="saveAutomationSettings()">💾 حفظ إعدادات واتساب</button></div><div class="box" style="background:#fff7fa"><h3>⭐ برنامج النقاط</h3><label><input id="pointsEnabled" type="checkbox" ${p.enabled?'checked':''}> تفعيل النقاط</label><div class="row"><label>طريقة الكسب<select id="pointsMode"><option value="order" ${p.earnMode==='order'?'selected':''}>عدد ثابت لكل طلب</option><option value="amount" ${p.earnMode==='amount'?'selected':''}>حسب قيمة الشراء</option></select></label><label>نقاط لكل طلب<input id="pointsPerOrder" type="number" min="0" step="1" value="${Number(p.pointsPerOrder)||10}"></label><label>كل كم ₪ = نقاط؟<input id="amountPerPoint" type="number" min="0.01" step="0.01" value="${Number(p.amountPerPoint)||10}"></label><label>عدد النقاط لكل وحدة<input id="pointsPerAmount" type="number" min="1" step="1" value="${Number(p.pointsPerAmount)||1}"></label><label>قيمة النقطة بالشيكل<input id="pointValue" type="number" min="0" step="0.01" value="${Number(p.pointValue)||0.1}"></label><label><input id="pointsRedeemEnabled" type="checkbox" ${p.redeemEnabled!==false?'checked':''}> السماح باستبدال النقاط بخصم</label><label>تحتسب النقاط عند<select id="pointsAwardOn"><option value="delivered" ${p.awardOn!=='placed'?'selected':''}>تسليم الطلب</option><option value="placed" ${p.awardOn==='placed'?'selected':''}>إنشاء الطلب</option></select></label></div><p class="small">مثال: إذا اخترتِ كل 10 ₪ = نقطة، فالطلب 100 ₪ يمنح 10 نقاط. وإذا كانت قيمة النقطة 0.10 ₪ فـ100 نقطة = 10 ₪.</p><button class="green" onclick="saveLoyaltySettings()">💾 حفظ إعدادات النقاط</button></div></div>`}
-async function saveAutomationSettings(){const v={enabled:!!document.getElementById('waAutoEnabled')?.checked,abandonedEnabled:!!document.getElementById('waAbandonedEnabled')?.checked,abandonedAfterDays:Math.max(1,Number(document.getElementById('waAbandonedDays')?.value)||7),lowStockEnabled:!!document.getElementById('waLowEnabled')?.checked,lowStockThreshold:Math.max(0,Number(document.getElementById('waLowThreshold')?.value)||2),cooldownDays:Math.max(1,Number(document.getElementById('waCooldown')?.value)||7),languageCode:'ar'};await saveAdminSetting('whatsapp_automation',v);save('lf_whatsapp_automation',v);alert('تم حفظ إعدادات رسائل واتساب 🌸')}
-async function saveLoyaltySettings(){const v={enabled:!!document.getElementById('pointsEnabled')?.checked,earnMode:document.getElementById('pointsMode')?.value||'order',pointsPerOrder:Math.max(0,Number(document.getElementById('pointsPerOrder')?.value)||0),amountPerPoint:Math.max(.01,Number(document.getElementById('amountPerPoint')?.value)||10),pointsPerAmount:Math.max(1,Number(document.getElementById('pointsPerAmount')?.value)||1),pointValue:Math.max(0,Number(document.getElementById('pointValue')?.value)||0),redeemEnabled:!!document.getElementById('pointsRedeemEnabled')?.checked,awardOn:document.getElementById('pointsAwardOn')?.value||'delivered'};await saveAdminSetting('loyalty',v);save('lf_loyalty',v);alert('تم حفظ إعدادات برنامج النقاط ⭐')}
-function legacyRender(){brands=load('lf_brands',brands);products=load('lf_products',products).map(p=>normalizeProductImages({...p,visaDiscount:Math.max(0,Number(p.visaDiscount)||0),cost:Math.max(0,Number(p.cost)||0),top5:!!p.top5,quickOffer:!!p.quickOffer,offerExpiry:p.offerExpiry||'',quickOfferExpiry:p.quickOfferExpiry||'',stock:p.stock===undefined?10:Math.max(0,Number(p.stock)||0)}));save('lf_products',products);cats=load('lf_cats',cats);orders=load('lf_orders',orders);normalizeOrders();const existingEvents=load('lf_order_events',[]);if(!existingEvents.length&&orders.length){save('lf_order_events',orders.map(o=>({id:Date.now()+Math.random(),orderId:o.id,from:'',to:o.status||'جديد',note:'سجل أولي للطلب',timestamp:Number(o.createdAt)||Date.now(),date:o.date||new Date(Number(o.createdAt)||Date.now()).toLocaleString('ar-PS')})))}const sales=orders.filter(o=>o.status!=='ملغي').reduce((s,o)=>s+(Number(o.total)||0),0),newCount=orders.filter(o=>o.status==='جديد').length;document.getElementById('orderBadge').textContent=newCount?`(${newCount})`:'';document.getElementById('app').innerHTML=`<div class="grid"><div class="stat"><b>الطلبات</b><h2>${orders.length}</h2></div><div class="stat"><b>الطلبات الجديدة</b><h2>${newCount}</h2></div><div class="stat"><b>إجمالي المبيعات</b><h2>${sales} ₪</h2></div><div class="stat"><b>الربح الإجمالي</b><h2>${orders.filter(o=>o.status!=='ملغي').reduce((s,o)=>s+(Number(o.total)||0)-(o.items||[]).reduce((c,it)=>c+(Number(it.cost)||0)*(Number(it.qty)||0),0),0).toFixed(2)} ₪</h2></div></div>
-<div class="box anchor" id="productsSection"><h2>➕ إضافة منتج جديد</h2><div class="row"><input id="n" placeholder="اسم المنتج بالعربي"><input id="en" placeholder="Product name English"><input id="pr" type="number" placeholder="السعر"></div><div class="row"><select id="cat">${Object.keys(cats).map(k=>`<option>${k}</option>`).join('')}</select><select id="brand">${brandOptions()}</select><input id="brandNew" placeholder="أو اكتبي براند جديد (يُسجّل تلقائيًا)"><input id="old" type="number" placeholder="السعر قبل الخصم"></div><div class="row"><label>📦 المخزون<input id="stock" type="number" min="0" step="1" value="10" placeholder="الكمية المتوفرة"></label><label>💰 تكلفة القطعة<input id="cost" type="number" min="0" step="0.01" value="0" placeholder="تكلفة الشراء"></label><label class="visaBox">💳 خصم Visa (%)<input id="visaDisc" type="number" min="0" max="100" step="0.5" value="0" placeholder="مثلاً 10"></label></div><div class="box" style="padding:12px;background:#fff7fa"><b>🎨 الألوان والمخزون (اختياري)</b><div class="small">أضيفي كل لون وحددي مخزونه بسهولة.</div>${renderVariantEditor("new",[])}</div><textarea id="desc" placeholder="الوصف"></textarea><div class="row"><label><input id="sale" type="checkbox"> المنتج عليه عرض</label><label><input id="offer" type="checkbox" checked> إظهار «لأجلك سيدتي» بجانب السعر</label><label><input id="top5" type="checkbox"> ⭐ ضمن أقوى Top 5</label><label><input id="quickOffer" type="checkbox"> ⚡ عرض سريع</label><label>ينتهي العرض <input id="offerExpiry" type="date"></label><label>ينتهي العرض السريع <input id="quickOfferExpiry" type="date"></label></div><div class="box" style="padding:12px;background:#fff7fa"><b>🖼️ صور المنتج</b><div class="small">الصورة الرئيسية تظهر أولًا، والصور الفرعية تظهر تحتها داخل تفاصيل المنتج.</div><label>الصور الرئيسية (يمكن اختيار أكثر من صورة) <input id="mainPhoto" type="file" accept="image/*" multiple></label><label>الصور الفرعية (الجوانب، الخلف، التفاصيل...) <input id="subPhotos" type="file" accept="image/*" multiple></label></div><button class="pink" onclick="addProduct()">إضافة المنتج</button></div>
-<div class="box"><h2>📦 المنتجات</h2>${products.map(p=>`<div class="product"><div class="productHead"><img class="productAdminThumb" src="${safeImg((p.images||[]).find(Boolean),LOGO)}" onerror="this.onerror=null;this.src='${LOGO}'" alt="${esc(p.name)}"><div class="grow"><b>${esc(p.name)}</b><div class="muted">${esc(p.en)} • ${esc(p.cat)}${p.brand?' • '+esc(p.brand):''}</div></div><strong>${Number(p.price)||0} ₪</strong>${Number(p.visaDiscount)>0?`<span class="visaBadge">💳 Visa -${Number(p.visaDiscount)}%</span>`:''}${Number(p.stock)<=0?`<span class="soldAdminBadge">SOLD OUT</span>`:`<span class="stockBadge">المخزون: ${Number(p.stock)||0}</span>`}<button type="button" onclick="toggleEdit(${p.id})">${openEdits.has(p.id)?'إغلاق':'✏️ تعديل'}</button><button type="button" class="danger" onclick="del(${p.id})">حذف</button></div>${openEdits.has(p.id)?`<div class="edit open"><h3>✏️ تعديل المنتج</h3><input id="ar_${p.id}" value="${esc(p.name)}"><input id="en_${p.id}" value="${esc(p.en)}"><div class="row"><input id="price_${p.id}" type="number" value="${Number(p.price)||0}"><input id="old_${p.id}" type="number" value="${Number(p.old)||0}"><input id="cost_${p.id}" type="number" min="0" step="0.01" value="${Number(p.cost)||0}" placeholder="تكلفة القطعة"></div><div class="row"><select id="cat_${p.id}">${Object.keys(cats).map(k=>`<option ${p.cat===k?'selected':''}>${esc(k)}</option>`).join('')}</select><select id="brand_${p.id}">${brandOptions(p.brand||'')}</select><input id="brandNew_${p.id}" placeholder="أو اكتبي براند جديد (يُسجّل تلقائيًا)"><label><input id="sale_${p.id}" type="checkbox" ${p.onSale?'checked':''}> عرض</label><label><input id="offer_${p.id}" type="checkbox" ${p.offerLabel?'checked':''}> «لأجلك سيدتي»</label><label><input id="top5_${p.id}" type="checkbox" ${p.top5?'checked':''}> ⭐ Top 5</label><label><input id="quickOffer_${p.id}" type="checkbox" ${p.quickOffer?'checked':''}> ⚡ عرض سريع</label><label>ينتهي العرض <input id="offerExpiry_${p.id}" type="date" value="${esc(p.offerExpiry||'')}"></label><label>ينتهي العرض السريع <input id="quickOfferExpiry_${p.id}" type="date" value="${esc(p.quickOfferExpiry||'')}"></label><label>📦 المخزون<input id="stock_${p.id}" type="number" min="0" step="1" value="${Number(p.stock)||0}"></label><div style="grid-column:1/-1;background:#fff7fa;padding:12px;border-radius:12px"><b>🎨 الألوان والمخزون</b><div class="small">أضيفي لونًا جديدًا أو عدّلي مخزون أي لون.</div>${renderVariantEditor(p.id,p.variants||[])}</div><label>💳 خصم Visa (%)<input id="visa_${p.id}" type="number" min="0" max="100" step="0.5" value="${Number(p.visaDiscount)||0}"></label></div><textarea id="desc_${p.id}">${esc(p.desc||'')}</textarea><div class="gallery">${normalizeProductImages(p).mainImages.map((x,i)=>`<div style="text-align:center"><img src="${x}" class="thumb"><div class="small">⭐ صورة رئيسية ${i+1}</div><button class="danger" onclick="removeMainImage(${p.id},${i})">حذف الصورة</button></div>`).join('')}${normalizeProductImages(p).subImages.map((x,i)=>`<div style="text-align:center"><img src="${x}" class="thumb"><div class="small">📷 صورة فرعية</div><button class="green" onclick="setMainImage(${p.id},${i})">إضافة كصورة رئيسية</button><br><button class="danger" onclick="removeSubImage(${p.id},${i})">حذف الصورة</button></div>`).join('')}</div><label>إضافة صور رئيسية (يمكن اختيار عدة صور):</label><input type="file" accept="image/*" multiple onchange="addMainImages(${p.id},this)"><label>إضافة صور فرعية:</label><input type="file" accept="image/*" multiple onchange="addSubImages(${p.id},this)"><label>استبدال كامل المعرض (أول صورة رئيسية والباقي فرعية):</label><input type="file" accept="image/*" multiple onchange="replaceAllImages(${p.id},this)"><div class="stockQuick"><b>📦 إضافة مخزون سريع</b>${Array.isArray(p.variants)&&p.variants.length?`<input id="addvariant_${p.id}" placeholder="مثال: أسود: 5">`:`<input id="addstock_${p.id}" type="number" min="1" step="1" placeholder="كمية الإضافة">`}<button class="green" onclick="addStock(${p.id})">+ إضافة</button></div><button type="button" class="green" onclick="saveEdit(${p.id})">حفظ تعديلات المنتج</button></div>`:''}</div>`).join('')}</div>
-<div class="box anchor" id="catsSection"><h2>🏷️ الفئات</h2><div class="row"><input id="catAr" placeholder="اسم الفئة بالعربي"><input id="catEn" placeholder="اسم الفئة بالإنجليزي"><input id="catIcon" placeholder="أيقونة مثل 💄"></div><input id="catImage" type="file" accept="image/*"><button class="pink" onclick="addCategory()">إضافة فئة جديدة</button><div class="gallery">${Object.keys(cats).map(k=>`<div style="text-align:center"><img class="thumb" src="${cats[k].image||LOGO}"><div>${esc(k)}</div><button class="danger" onclick="delCategory('${esc(k).replace(/'/g,"\\'")}')">حذف</button></div>`).join('')}</div></div>
-<div class="box anchor" id="brandsSection"><h2>🏷️ البراندات</h2><div class="row"><input id="brandAr" placeholder="اسم البراند بالعربي"><input id="brandEn" placeholder="اسم البراند بالإنجليزي"></div><input id="brandImage" type="file" accept="image/*"><button class="pink" onclick="addBrand()">＋ إضافة براند</button><div class="gallery" style="margin-top:12px">${Object.keys(brands).map(k=>`<div style="text-align:center;border:1px solid #eadce3;padding:10px;border-radius:12px"><img class="thumb" src="${safeImg(brands[k].image,LOGO)}"><input id="brandAr_${esc(k)}" value="${esc(brands[k].ar||k)}"><input id="brandEn_${esc(k)}" value="${esc(brands[k].en||'')}"><button class="green" onclick="renameBrand('${esc(k).replace(/'/g,"\'")}')">حفظ التعديل</button><button class="danger" onclick="delBrand('${esc(k).replace(/'/g,"\'")}')">حذف</button><label style="display:block;margin-top:5px">تغيير الصورة<input type="file" accept="image/*" onchange="updateBrandImage('${esc(k).replace(/'/g,"\'")}',this)"></label></div>`).join('')}</div><p class="small">أضيفي البراندات من هنا، ثم اختاري البراند من إضافة/تعديل المنتج. ستظهر البراندات للزبونة في القائمة المنسدلة.</p></div><div class="box anchor" id="heroSection"><h2>🖼️ الشعار والسلايدر الرئيسي</h2><div class="row"><div><p>اللوغو الحالي</p><img class="previewLogo" id="logoPreview"></div><div><p>رفع لوغو جديد</p><input id="logoFile" type="file" accept="image/*" onchange="setHeroLogo(this)"><p>الصورة الاحتياطية القديمة</p><input id="heroFile" type="file" accept="image/*" onchange="setHeroImage(this)"></div></div><hr><h3>🎨 شكل الكتابة على السلايدات</h3>
-<div class="row">
-  <div><label>نوع الخط</label><select id="heroFontSelect">
-    <option value="Tahoma,Arial,sans-serif"${getHeroTextStyleAdmin().font==='Tahoma,Arial,sans-serif'?' selected':''}>Tahoma</option>
-    <option value="Arial,Tahoma,sans-serif"${getHeroTextStyleAdmin().font==='Arial,Tahoma,sans-serif'?' selected':''}>Arial</option>
-    <option value="Georgia,'Times New Roman',serif"${getHeroTextStyleAdmin().font==="Georgia,'Times New Roman',serif"?' selected':''}>Georgia</option>
-    <option value="'Trebuchet MS',Arial,sans-serif"${getHeroTextStyleAdmin().font==="'Trebuchet MS',Arial,sans-serif"?' selected':''}>Trebuchet MS</option>
-    <option value="'Times New Roman',serif"${getHeroTextStyleAdmin().font==="'Times New Roman',serif"?' selected':''}>Times New Roman</option>
-    <option value="'Courier New',monospace"${getHeroTextStyleAdmin().font==="'Courier New',monospace"?' selected':''}>Courier New</option>
-    <option value="system-ui,Arial,sans-serif"${getHeroTextStyleAdmin().font==='system-ui,Arial,sans-serif'?' selected':''}>System</option>
-  </select></div>
-  <div><label>لون الخط</label><input id="heroTextColor" type="color" value="${esc(getHeroTextStyleAdmin().color)}" style="height:44px;padding:4px"></div>
-  <div><label>شفافية الخط <span id="heroOpacityVal">${Math.round(getHeroTextStyleAdmin().opacity*100)}%</span></label>
-    <input id="heroTextOpacity" type="range" min="0" max="100" value="${Math.round(getHeroTextStyleAdmin().opacity*100)}" oninput="document.getElementById('heroOpacityVal').textContent=this.value+'%'">
-  </div>
-  <div><label>لون خلفية مربع النص</label><input id="heroTextBgColor" type="color" value="${esc(getHeroTextStyleAdmin().bgColor)}" style="height:44px;padding:4px"></div>
-  <div><label>شفافية الخلفية <span id="heroBgOpacityVal">${Math.round(getHeroTextStyleAdmin().bgOpacity*100)}%</span></label>
-    <input id="heroTextBgOpacity" type="range" min="0" max="100" value="${Math.round(getHeroTextStyleAdmin().bgOpacity*100)}" oninput="document.getElementById('heroBgOpacityVal').textContent=this.value+'%'">
+button:hover{opacity:.9}
+
+button.green{background:var(--green)}
+button.red{background:var(--red)}
+button.pink{background:var(--pink)}
+button.gray{background:#777}
+
+input,select,textarea{
+  width:100%;
+  padding:11px;
+  margin:5px 0 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:white;
+}
+
+textarea{min-height:100px;resize:vertical}
+
+.top{
+  background:var(--plum);
+  color:white;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:7px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.nav b{
+  font-size:19px;
+  margin-left:auto;
+}
+
+.nav button{
+  background:white;
+  color:var(--plum);
+}
+
+.wrap{
+  max-width:1200px;
+  margin:20px auto;
+  padding:0 15px;
+}
+
+.box,.login{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 25px #63345e12;
+}
+
+.login{
+  max-width:450px;
+  margin:70px auto;
+}
+
+h1,h2,h3{color:var(--plum)}
+
+.small{
+  font-size:12px;
+  color:#777;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.stat{
+  padding:18px;
+  border-radius:15px;
+  background:#f7d8e3;
+}
+
+.stat b{
+  display:block;
+  font-size:25px;
+  margin-top:8px;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.row>*{flex:1}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+  margin:10px 0;
+  background:#fff;
+}
+
+.product{
+  display:grid;
+  grid-template-columns:80px 1fr auto;
+  gap:12px;
+  align-items:center;
+}
+
+.product img{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:12px;
+  background:#f5e1e8;
+}
+
+.actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.hidden{display:none}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:9px;
+  border-bottom:1px solid var(--line);
+  text-align:right;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#eee;
+  font-size:12px;
+}
+
+.badge.green{background:#e6f1df;color:#55713f}
+.badge.red{background:#f5d9df;color:#8c3048}
+.badge.pink{background:#f7d8e3;color:#63345e}
+
+.sectionTitle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.editBox{
+  background:#fff7fa;
+  border:1px solid var(--line);
+  padding:15px;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr 1fr}
+  .product{grid-template-columns:60px 1fr}
+  .product img{width:60px;height:60px}
+  .product>.actions{grid-column:1/-1}
+  .nav b{width:100%;margin:0 0 7px}
+}
+
+@media(max-width:500px){
+  .grid{grid-template-columns:1fr}
+  .row{display:block}
+  table{font-size:12px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="top" class="top hidden">
+  <div class="nav">
+    <b>🌸 Ladies First — لوحة التحكم</b>
+
+    <button onclick="show('dashboard')">📊 الرئيسية</button>
+    <button onclick="show('products')">📦 المنتجات</button>
+    <button onclick="show('orders')">🛍️ الطلبات</button>
+    <button onclick="show('users')">👥 المستخدمون</button>
+    <button onclick="show('coupons')">🎟️ الكوبونات</button>
+    <button onclick="show('hero')">🖼️ السلايدر</button>
+    <button onclick="show('social')">📱 التواصل</button>
+    <button onclick="show('automation')">🤖 الأتمتة</button>
+    <button id="adminsBtn" onclick="show('admins')">🛡️ الإداريون</button>
+    <button onclick="show('settings')">⚙️ الإعدادات</button>
+    <button onclick="downloadBackup()">💾 نسخة احتياطية</button>
+    <a href="index.html" style="background:white;color:#63345e;padding:10px 14px;border-radius:10px;text-decoration:none">🛒 المتجر</a>
+    <button onclick="logout()" class="red">خروج</button>
   </div>
 </div>
-<button class="green" onclick="saveHeroTextStyle()">💾 حفظ شكل الخط</button>
-<hr><h3>➕ إضافة شريحة للسلايدر</h3><div class="row"><input id="heroTitleAr" placeholder="العنوان بالعربي"><input id="heroTitleEn" placeholder="العنوان بالإنجليزي"></div><div class="row"><input id="heroDescAr" placeholder="الوصف بالعربي"><input id="heroDescEn" placeholder="الوصف بالإنجليزي"></div><input id="heroSlideImage" type="file" accept="image/*"><button class="pink" onclick="addHeroSlide()">＋ إضافة الشريحة</button><div style="margin-top:15px"><h3>الشرائح الحالية</h3>${getHeroSlidesAdmin().map(x=>`<div class="box" style="padding:12px;background:#fff7fa"><div class="row"><img class="thumb" src="${safeImg(x.image,LOGO)}"><div class="grow"><input id="hsA_${x.id}" value="${esc(x.titleAr||'')}"><input id="hsE_${x.id}" value="${esc(x.titleEn||'')}"><input id="hdA_${x.id}" value="${esc(x.descAr||'')}"><input id="hdE_${x.id}" value="${esc(x.descEn||'')}"><input id="hi_${x.id}" type="file" accept="image/*"></div></div><button class="green" onclick="saveHeroSlide(${x.id})">حفظ الشريحة</button> <button class="danger" onclick="deleteHeroSlide(${x.id})">حذف</button></div>`).join('')}</div></div>
-<div class="box anchor" id="waitlistSection"><h2>🔔 قائمة التوفر</h2><p class="small">عند توفر منتج، اضغطي «إبلاغ عبر WhatsApp» لفتح رسالة جاهزة للزبونة.</p>${(load('lf_waitlist',[])).length?load('lf_waitlist',[]).map(w=>{const p=products.find(x=>x.id===w.productId);const available=p?((Array.isArray(p.variants)&&p.variants.length)?p.variants.reduce((a,v)=>a+Number(v.stock||0),0):Number(p.stock||0)):0;return `<div class="order waitRow"><a href="index.html#product-${w.productId}" target="_blank" title="فتح المنتج" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:8px"><img src="${safeImg(p?.images?.[0],LOGO)}" onerror="this.onerror=null;this.src='${LOGO}'" style="width:76px;height:76px;object-fit:cover;border-radius:14px;border:1px solid #eadce3"><div><b>${esc(w.productName||p?.name||'منتج')}</b><div class="muted">اضغطي على الصورة أو اسم المنتج لفتحه</div></div></a><div>${esc(w.name)} — ${esc(w.phone)}<br><span class="muted">${available>0?'متوفر الآن':'بانتظار التوفر'}</span>${available>0?` <button class="green" onclick="notifyWait(${w.id})">💬 إبلاغ عبر WhatsApp</button>`:''}<button class="danger" onclick="removeWait(${w.id})">حذف</button></div></div>`}).join(''):'<p>لا توجد طلبات انتظار.</p>'}</div><div class="box anchor" id="couponsSection"><h2>🎟️ أكواد الخصم</h2><div class="row"><input id="couponCode" placeholder="مثال: WELCOME10"><select id="couponType"><option value="percent">نسبة مئوية %</option><option value="fixed">مبلغ ثابت ₪</option></select><input id="couponValue" type="number" min="0" step="0.5" placeholder="قيمة الخصم"><button class="pink" onclick="addCoupon()">＋ إنشاء الكود</button></div><div class="small">الكود يطبّق على السلة بعد خصم Visa.</div><div class="couponAdmin">${getCoupons().length?`<table><tr><th>الكود</th><th>الخصم</th><th>الحالة</th><th>إجراء</th></tr>${getCoupons().map(c=>`<tr><td><b>${esc(c.code)}</b></td><td>${c.type==='fixed'?Number(c.value)+' ₪':Number(c.value)+'%'}</td><td>${c.active===false?'غير فعال':'فعال'}</td><td><button onclick="toggleCoupon('${esc(c.code).replace(/'/g,"\'")}')">${c.active===false?'تفعيل':'تعطيل'}</button> <button class="danger" onclick="deleteCoupon('${esc(c.code).replace(/'/g,"\'")}')">حذف</button></td></tr>`).join('')}</table>`:'<p>لا توجد أكواد خصم بعد.</p>'}</div></div><div class="box anchor" id="reportSection"><h2>📊 تقرير حركات الطلبات</h2><p class="small">حددي «من» و«إلى» فقط، وسيظهر التقرير تلقائيًا بمجرد اكتمال التاريخين.</p><div class="row"><label>من <input id="reportFrom" class="customDateInput" type="text" readonly placeholder="اختاري التاريخ" onclick="openDatePicker('reportFrom')" onchange="autoReportDate()"></label><label>إلى <input id="reportTo" class="customDateInput" type="text" readonly placeholder="اختاري التاريخ" onclick="openDatePicker('reportTo')" onchange="autoReportDate()"></label><button class="pink" type="button" onclick="clearReportDates()">🧹 مسح الفترة</button></div><div id="reportContent" style="display:none"></div></div><div class="box anchor" id="ordersSection"><h2>🛍️ الطلبات</h2><p class="small">بدل القائمة الطويلة: حددي الفترة، أو اضغطي زر العرض مرة واحدة. الطلبات لا تظهر إلا عند طلبك.</p><div class="row"><label>من <input id="ordersFrom" class="customDateInput" type="text" readonly placeholder="اختاري التاريخ" onclick="openDatePicker('ordersFrom')" onchange="autoOrdersDate()"></label><label>إلى <input id="ordersTo" class="customDateInput" type="text" readonly placeholder="اختاري التاريخ" onclick="openDatePicker('ordersTo')" onchange="autoOrdersDate()"></label><button class="pink" type="button" onclick="toggleOrdersList()">📋 عرض/إخفاء الطلبات</button></div><div id="ordersContent" style="display:none"></div></div>
-${socialAdminHtml()}${usersAdminHtml()}${adminsAdminHtml()}${automationAdminHtml()}<div class="box"><h2>⚙️ الإعدادات</h2><label>🔗 رابط المتجر الذي سيظهر في QR</label><input id="storeUrl" value="${esc(localStorage.getItem('lf_store_url')||new URL('index.html',location.href).href)}" placeholder="https://example.com/"><button class="green" onclick="saveStoreUrl()">حفظ رابط المتجر</button><hr><h3>🎁 خيارات التغليف</h3><p class="small">عدّلي اسم وسعر كل نوع تغليف. هذه الخيارات تظهر للزبونة داخل تفاصيل المنتج.</p><div id="packagingAdminRows">${getPackagingOptionsAdmin().map(x=>`<div class="packRow" data-id="${esc(x.id)}"><input class="pkgAr" value="${esc(x.nameAr||'')}" placeholder="اسم التغليف بالعربي"><input class="pkgEn" value="${esc(x.nameEn||'')}" placeholder="Packaging name English"><input class="pkgPrice" type="number" min="0" step="0.5" value="${Number(x.price)||0}"><label><input class="pkgActive" type="checkbox" ${x.active!==false?'checked':''}> فعال</label><button type="button" class="danger" onclick="this.parentElement.remove()">حذف</button></div>`).join('')}</div><button type="button" onclick="addPackagingRow()">＋ إضافة خيار تغليف</button><button class="green" onclick="savePackagingOptions()">💾 حفظ خيارات التغليف</button><hr><input id="np" type="password" placeholder="كلمة مرور جديدة"><button onclick="changePass()">حفظ كلمة المرور</button></div>`;document.querySelectorAll('.adminCollapsible').forEach(x=>x.classList.remove('open'));const h=load('lf_hero',{logo:LOGO,image:LOGO});updateReport(false);const lp=document.getElementById('logoPreview');if(lp){lp.src=h.logo||LOGO;lp.onerror=()=>{lp.onerror=null;lp.src=LOGO}}}
-function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function safeImg(src,fallback=LOGO){return src||fallback}
 
-const API_BASE=(window.LF_API_BASE||localStorage.getItem('lf_api_base')||(location.protocol==='file:'?'http://localhost:3000':location.origin)).replace(/\/$/,'');
-function apiToken(){return sessionStorage.getItem('lf_api_token')||''}
-async function apiFetch(path,options={}){const headers={'Content-Type':'application/json',...(options.headers||{})};if(apiToken())headers.Authorization='Bearer '+apiToken();const r=await fetch(API_BASE+path,{...options,headers});let data={};try{data=await r.json()}catch{}if(!r.ok)throw new Error(data.error||'API_ERROR');return data}
-function apiProductFromServer(p){const images=Array.isArray(p.images)?p.images:[];return normalizeProductImages({id:p.id,name:p.name,en:p.name,price:Number(p.price)||0,old:Number(p.old_price)||0,discount:p.old_price&&p.price< p.old_price?Math.round((1-p.price/p.old_price)*100):0,onSale:Number(p.old_price)>Number(p.price),offerLabel:true,cat:p.category||'',brand:p.brand||'',desc:p.description||'',mainImages:images.slice(0,1),subImages:images.slice(1),images,icon:'🛍️',visaDiscount:0,cost:Number(p.cost_price)||0,stock:Number(p.stock)||0,variants:Array.isArray(p.variants)?p.variants:[],top5:false,quickOffer:false,offerExpiry:'',quickOfferExpiry:''})}
-function apiProductPayload(p){normalizeProductImages(p);return {id:String(p.id),name:String(p.name||'منتج'),description:String(p.desc||''),brand:String(p.brand||''),category:String(p.cat||''),price:Number(p.price)||0,old_price:Number(p.old)||0,cost_price:Math.max(0,Number(p.cost)||0),stock:totalStock(p),images:(p.images||[]).slice(0,8),variants:variantList(p),active:true,metadata:{en:p.en||p.name,discount:p.discount||0,onSale:!!p.onSale,offerLabel:p.offerLabel!==false,visaDiscount:Number(p.visaDiscount)||0,top5:!!p.top5,quickOffer:!!p.quickOffer,offerExpiry:p.offerExpiry||'',quickOfferExpiry:p.quickOfferExpiry||'',icon:p.icon||'🛍️'}}}
-function apiOrderFromServer(o,items=[]){return {id:o.id,name:o.customer_name,phone:o.customer_contact,contact:o.customer_contact,address:o.customer_address||'',status:{new:'جديد',confirmed:'قيد التجهيز',shipped:'قيد الشحن',delivered:'تم التوصيل',cancelled:'ملغي'}[o.status]||o.status,total:Number(o.total)||0,subtotal:Number(o.subtotal)||0,couponDiscount:Number(o.discount)||0,couponCode:o.coupon_code||'',shippingFee:Number(o.shipping)||0,shippingWaived:false,pay:o.payment_method==='visa'?'visa':'cod',date:o.created_at,createdAt:Date.parse(o.created_at)||Date.now(),inventoryState:o.inventory_state==='released'?'restored':'deducted',items:items.map(it=>({productId:it.product_id,name:it.name_snapshot,price:Number(it.price_snapshot)||0,cost:Number(it.cost_snapshot)||0,qty:Number(it.quantity)||1,variant:it.variant_name||'',images:[]}))}}
-async function syncAdminData(){
-  const owner=Number(currentAdminUser?.is_owner)===1, perms=currentAdminUser?.permissions||{}; const can=k=>owner||perms['*']===true||perms[k]===true;
-  const pr=await apiFetch('/api/products').catch(()=>({products:[]})); products=(pr.products||[]).map(apiProductFromServer); if(products.length)save('lf_products',products);
-  if(can('users')){const us=await apiFetch('/api/admin/users').catch(()=>({users:[]}));save('lf_users',(us.users||[]).map(u=>({...u,type:String(u.contact||'').includes('@')?'email':'phone',createdAt:Date.parse(u.created_at)||Date.now(),updatedAt:Date.parse(u.updated_at)||Date.now()})));} else save('lf_users',[]);
-  if(can('orders')){const or=await apiFetch('/api/admin/orders').catch(()=>({orders:[]}));const serverOrders=[];for(const o of (or.orders||[])){const its=await apiFetch('/api/admin/orders/'+encodeURIComponent(o.id)).catch(()=>null);serverOrders.push(apiOrderFromServer(o,its?.items||[]));}orders=serverOrders;save('lf_orders',orders);} else save('lf_orders',[]);
-  if(can('coupons')){const co=await apiFetch('/api/admin/coupons').catch(()=>({coupons:[]}));save('lf_coupons',(co.coupons||[]).map(c=>({...c,createdAt:Date.parse(c.created_at)||Date.now()})));} else save('lf_coupons',[]);
+<div id="app" class="wrap"></div>
+
+<script>
+
+const API_BASE =
+  (window.LF_API_BASE ||
+   localStorage.getItem('lf_api_base') ||
+   location.origin).replace(/\/$/,'');
+
+let currentUser=null;
+let products=[];
+let users=[];
+let orders=[];
+let coupons=[];
+let settings={};
+
+function token(){
+  return sessionStorage.getItem('lf_api_token') ||
+         sessionStorage.getItem('lf_admin_token') ||
+         '';
 }
-async function saveAdminSetting(key,value){await apiFetch('/api/admin/settings/'+encodeURIComponent(key),{method:'PUT',body:JSON.stringify({value})});}
-async function syncAdminSettings(){
-  const owner=Number(currentAdminUser?.is_owner)===1, perms=currentAdminUser?.permissions||{}; if(!owner && perms.settings!==true && perms['*']!==true) return;
-  const keys=['cats','brands','hero','hero_slides','hero_text_style','social_links','packaging_options','store_url','whatsapp_automation','loyalty'];
-  const local={cats:load('lf_cats',cats),brands:load('lf_brands',brands),hero:load('lf_hero',{logo:LOGO,image:LOGO}),hero_slides:load('lf_hero_slides',[]),hero_text_style:load('lf_hero_text_style',DEFAULT_HERO_TEXT_STYLE_ADMIN),social_links:load('lf_social_links',DEFAULT_SOCIAL_ADMIN),packaging_options:load('lf_packaging_options',[]),store_url:localStorage.getItem('lf_store_url')||new URL('index.html',location.href).href,whatsapp_automation:load('lf_whatsapp_automation',{enabled:false,abandonedEnabled:true,abandonedAfterDays:7,lowStockEnabled:true,lowStockThreshold:2,cooldownDays:7,languageCode:'ar'}),loyalty:load('lf_loyalty',{enabled:false,earnMode:'order',pointsPerOrder:10,amountPerPoint:10,pointsPerAmount:1,pointValue:0.1,redeemEnabled:true,awardOn:'delivered'})};
-  const d=await apiFetch('/api/admin/settings'); const st=d.settings||{};
-  const missing=keys.filter(k=>st[k]===undefined);
-  if(missing.length===keys.length){for(const k of keys)await saveAdminSetting(k,local[k]);Object.assign(st,local);}
-  else {for(const k of keys)if(st[k]!==undefined){if(k==='store_url')localStorage.setItem('lf_store_url',String(st[k]||''));else save('lf_'+k,st[k]);}}
-  cats=load('lf_cats',st.cats||cats);brands=load('lf_brands',st.brands||brands);save('lf_whatsapp_automation',st.whatsapp_automation||local.whatsapp_automation);save('lf_loyalty',st.loyalty||local.loyalty);products=load('lf_products',products);orders=load('lf_orders',orders);
+
+async function api(path,options={}){
+  const headers={
+    ...(options.body instanceof FormData ? {} : {'Content-Type':'application/json'}),
+    ...(options.headers||{})
+  };
+
+  const t=token();
+  if(t) headers.Authorization='Bearer '+t;
+
+  const r=await fetch(API_BASE+path,{
+    ...options,
+    headers,
+    cache:'no-store'
+  });
+
+  let data={};
+  try{data=await r.json()}catch{}
+
+  if(!r.ok){
+    throw new Error(data.error||('HTTP_'+r.status));
+  }
+
+  return data;
 }
-async function syncAdminWaitlist(){ if(Number(currentAdminUser?.is_owner)!==1 && currentAdminUser?.permissions?.waitlist!==true && currentAdminUser?.permissions?.['*']!==true) return;try{const d=await apiFetch('/api/admin/waitlist');save('lf_waitlist',(d.waitlist||[]).map(w=>({id:Number(w.id),productId:w.product_id,name:w.contact,phone:w.contact,contact:w.contact,productName:(products.find(p=>String(p.id)===String(w.product_id))?.name)||'منتج',date:w.created_at,notified:false})));}catch(e){console.warn('waitlist sync',e.message)}}
 
-async function migrateLocalProductsIfServerEmpty(){const r=await apiFetch('/api/products');if((r.products||[]).length||!products.length)return;for(const p of products)await apiFetch('/api/admin/products',{method:'POST',body:JSON.stringify(apiProductPayload(p))});}
-async function persistProducts(after){try{
-  for(const p of products){
-    normalizeProductImages(p);
-    for(const field of ['mainImages','subImages']){
-      const arr=Array.isArray(p[field])?p[field]:[];
-      for(let i=0;i<arr.length;i++) if(String(arr[i]).startsWith('data:image/')) arr[i]=await uploadDataUrl(arr[i]);
-    }
-    p.images=[...(p.mainImages||[]),...(p.subImages||[])];
-    await apiFetch('/api/admin/products',{method:'POST',body:JSON.stringify(apiProductPayload(p))});
-  }
-  save('lf_products',products);if(after)after()
-}catch(e){alert('تعذر مزامنة المنتج مع الخادم: '+e.message)}}
-async function addProduct(){const n=document.getElementById('n').value.trim();if(!n)return alert('اكتب اسم المنتج');const mainInput=document.getElementById('mainPhoto'),subInput=document.getElementById('subPhotos');const finish=(mains,subs)=>{const mainImgs=mains.filter(Boolean),subImgs=subs.filter(Boolean);if(!mainImgs.length)return alert('اختاري صورة رئيسية واحدة على الأقل');const price=Number(document.getElementById('pr').value)||0,old=Number(document.getElementById('old').value)||0,cost=Math.max(0,Number(document.getElementById('cost').value)||0),variants=collectVariants('new');const stock=variants.length?variants.reduce((a,v)=>a+v.stock,0):Math.max(0,Number(document.getElementById('stock').value)||0);const typedBrand=document.getElementById('brandNew')?.value.trim();const brand=ensureProductBrand(typedBrand||document.getElementById('brand').value);products.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),name:n,en:document.getElementById('en').value.trim()||n,price,old,discount:old>price?Math.round((1-price/old)*100):0,onSale:document.getElementById('sale').checked,offerLabel:document.getElementById('offer').checked,cat:document.getElementById('cat').value,brand,desc:document.getElementById('desc').value.trim(),mainImages:mainImgs,subImages:subImgs,images:[...mainImgs,...subImgs],icon:'🛍️',visaDiscount:Math.max(0,Number(document.getElementById('visaDisc').value)||0),cost,stock,variants,top5:document.getElementById('top5')?.checked||false,quickOffer:document.getElementById('quickOffer')?.checked||false,offerExpiry:document.getElementById('offerExpiry').value||'',quickOfferExpiry:document.getElementById('quickOfferExpiry')?.value||''});persistProducts(()=>render())};readImages(mainInput,mains=>readImages(subInput,subs=>finish(mains,subs)))}
-async function saveEdit(id){const p=products.find(x=>String(x.id)===String(id));if(!p)return;const val=(key,def='')=>document.getElementById(key+'_'+id)?.value??def;p.name=val('ar').trim();p.en=val('en').trim();p.price=Number(val('price'))||0;p.old=Number(val('old'))||0;p.cat=val('cat',p.cat);const typedBrand=document.getElementById('brandNew_'+id)?.value.trim();p.brand=ensureProductBrand(typedBrand||document.getElementById('brand_'+id).value);p.visaDiscount=Math.max(0,Number(document.getElementById('visa_'+id).value)||0);p.cost=Math.max(0,Number(document.getElementById('cost_'+id).value)||0);p.top5=document.getElementById('top5_'+id)?.checked||false;p.quickOffer=document.getElementById('quickOffer_'+id)?.checked||false;p.offerExpiry=document.getElementById('offerExpiry_'+id)?.value||'';p.quickOfferExpiry=document.getElementById('quickOfferExpiry_'+id)?.value||'';const variants=collectVariants(String(id));if(variants.length){p.variants=variants;syncStockFromVariants(p)}else{p.variants=[];p.stock=Math.max(0,Number(document.getElementById('stock_'+id).value)||0)}p.desc=val('desc').trim();normalizeProductImages(p);await persistProducts(()=>{alert('تم حفظ التعديلات');render()})}
-async function status(id,v){const map={'جديد':'new','قيد التجهيز':'confirmed','قيد الشحن':'shipped','تم التوصيل':'delivered','ملغي':'cancelled'};const o=orders.find(x=>String(x.id)===String(id));if(!o)return;try{const r=await apiFetch('/api/admin/orders/'+encodeURIComponent(id)+'/status',{method:'PATCH',body:JSON.stringify({status:map[v]||v})});const x=r.order;Object.assign(o,apiOrderFromServer(x));save('lf_orders',orders);render()}catch(e){alert('تعذر تغيير حالة الطلب: '+e.message)}}
-async function updateRegisteredUser(id){const name=document.getElementById('userName_'+id)?.value.trim(),contact=document.getElementById('userContact_'+id)?.value.trim(),gender=document.getElementById('userGender_'+id)?.value||'female',age=Math.max(13,Math.min(120,Number(document.getElementById('userAge_'+id)?.value)||0));if(!name||!contact||!age)return alert('يرجى تعبئة الاسم ووسيلة التواصل والعمر');try{await apiFetch('/api/admin/users/'+encodeURIComponent(id),{method:'PATCH',body:JSON.stringify({name,contact,gender,age})});await syncAdminData();alert('تم حفظ بيانات المستخدم بنجاح');render()}catch(e){alert('تعذر حفظ المستخدم: '+e.message)}}
-async function resetUserPassword(id){const password=prompt('أدخلي كلمة مرور جديدة لا تقل عن 8 أحرف:');if(!password||password.length<8)return;if(!confirm('سيتم تغيير كلمة المرور فورًا. متابعة؟'))return;try{await apiFetch('/api/admin/users/'+encodeURIComponent(id)+'/reset-password',{method:'POST',body:JSON.stringify({password})});alert('تم تغيير كلمة المرور بنجاح')}catch(e){alert('تعذر تغيير كلمة المرور: '+e.message)}}
-async function addCoupon(){const code=String(document.getElementById('couponCode')?.value||'').trim().toUpperCase().replace(/\s+/g,'');const type=document.getElementById('couponType')?.value||'percent';const value=Math.max(0,Number(document.getElementById('couponValue')?.value)||0);if(!code||!value)return alert('أدخل الكود والقيمة');try{await apiFetch('/api/admin/coupons',{method:'POST',body:JSON.stringify({code,type,value})});document.getElementById('couponCode').value='';document.getElementById('couponValue').value='';await syncAdminData();render()}catch(e){alert('تعذر إنشاء الكود: '+e.message)}}
-async function toggleCoupon(code){const c=getCoupons().find(x=>String(x.code).toUpperCase()===String(code).toUpperCase());if(!c)return;try{await apiFetch('/api/admin/coupons/'+encodeURIComponent(c.id),{method:'PATCH',body:JSON.stringify({active:c.active===false})});await syncAdminData();render()}catch(e){alert('تعذر تغيير حالة الكود: '+e.message)}}
-async function deleteCoupon(code){if(!confirm('حذف كود الخصم؟'))return;const c=getCoupons().find(x=>String(x.code).toUpperCase()===String(code).toUpperCase());if(!c)return;try{await apiFetch('/api/admin/coupons/'+encodeURIComponent(c.id),{method:'DELETE'});await syncAdminData();render()}catch(e){alert('تعذر حذف الكود: '+e.message)}}
-async function login(){document.getElementById('app').innerHTML='<div class="login"><h2>دخول لوحة التحكم</h2><input id="adminEmail" type="email" placeholder="البريد الإداري"><input id="p" type="password" placeholder="كلمة المرور"><button onclick="go()">دخول</button></div>'}
-async function go(){try{const r=await apiFetch('/api/auth/admin-login',{method:'POST',body:JSON.stringify({email:document.getElementById('adminEmail').value.trim(),password:document.getElementById('p').value})});sessionStorage.setItem('lf_admin_token',r.token);sessionStorage.setItem('lf_admin_ok','1');render()}catch(e){alert('بيانات الدخول غير صحيحة أو الخادم غير متاح')}}
-async function hashLocalPassword(password,salt){const data=new TextEncoder().encode(String(salt)+'|'+String(password));const buf=await crypto.subtle.digest('SHA-256',data);return [...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-function localOwner(){try{return JSON.parse(localStorage.getItem('lf_local_owner')||'null')}catch{return null}}
-function localAdmins(){try{return JSON.parse(localStorage.getItem('lf_local_admins')||'[]')}catch{return []}}
-function saveLocalAdmins(a){localStorage.setItem('lf_local_admins',JSON.stringify(a))}
-function localAdminUser(){const owner=localOwner();if(!owner)return null;const admins=localAdmins();return {id:'local-owner',name:owner.name||'المالك',contact:owner.email||'',email:owner.email||'',is_owner:1,active:1,permissions:{'*':true},local:true}}
-function localCurrentUserByLogin(email){const owner=localOwner();if(owner&&String(email).toLowerCase()===String(owner.email).toLowerCase())return localAdminUser();return localAdmins().find(a=>a.active!==false&&String(a.email||'').toLowerCase()===String(email).toLowerCase())||null}
+function esc(x){
+  return String(x??'')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
 
-async function localRender(){currentAdminUser=localAdminUser();sessionStorage.setItem('lf_local_admin_mode','1');sessionStorage.setItem('lf_admin_ok','1');sessionStorage.setItem('lf_admin_token',currentAdminUser?.id||'local-owner');legacyRender();setTimeout(()=>loadAdminManagement(),0);}
-async function localEmployeeRender(a){currentAdminUser=a;sessionStorage.setItem('lf_local_admin_mode','1');sessionStorage.setItem('lf_admin_ok','1');sessionStorage.setItem('lf_admin_token',a.id);legacyRender();}
+function money(x){
+  return Number(x||0).toFixed(2)+' ₪';
+}
 
-function localSetupScreen(){document.getElementById('app').innerHTML='<div class="login"><h2>🌸 إعداد Ladies First لأول مرة</h2><p class="small">الخادم غير متاح حاليًا، لذلك يمكنك الدخول بوضع محلي مؤقت. عند تشغيل Backend لاحقًا يمكن نقل الحساب للنسخة المركزية.</p><input id="setupName" placeholder="اسم المالك" autocomplete="name"><input id="setupEmail" type="email" placeholder="البريد الإلكتروني" autocomplete="email"><input id="setupPassword" type="password" placeholder="كلمة مرور قوية — 12 حرفًا على الأقل" autocomplete="new-password"><input id="setupPassword2" type="password" placeholder="تأكيد كلمة المرور" autocomplete="new-password"><button onclick="createLocalOwner()">إنشاء حساب المالك</button></div>'}
-async function createLocalOwner(){const name=document.getElementById('setupName')?.value.trim(),email=document.getElementById('setupEmail')?.value.trim(),password=document.getElementById('setupPassword')?.value||'',confirm=document.getElementById('setupPassword2')?.value||'';if(!name||!email||password.length<12)return alert('أدخل الاسم والإيميل وكلمة مرور من 12 حرفًا على الأقل');if(password!==confirm)return alert('كلمتا المرور غير متطابقتين');const salt=crypto.randomUUID?crypto.randomUUID():String(Date.now());const hash=await hashLocalPassword(password,salt);localStorage.setItem('lf_local_owner',JSON.stringify({name,email,salt,hash,createdAt:Date.now()}));await localRender();}
-function localLoginScreen(){document.getElementById('app').innerHTML='<div class="login"><h2>دخول لوحة التحكم</h2><p class="small">وضع تشغيل محلي — Backend غير متاح حاليًا.</p><input id="adminEmail" type="email" placeholder="البريد الإداري" autocomplete="username"><input id="p" type="password" placeholder="كلمة المرور" autocomplete="current-password"><button onclick="localGo()">دخول</button><button type="button" style="margin-top:8px;background:#8a6a82" onclick="localResetOwnerScreen()">تغيير كلمة مرور المالك</button><button type="button" style="margin-top:8px;background:#b44" onclick="localRecreateOwner()">نسيت كلمة المرور — إعادة إعداد المالك</button></div>'}
-async function localGo(){const email=document.getElementById('adminEmail')?.value.trim(),password=document.getElementById('p')?.value||'';const owner=localOwner();const employee=localCurrentUserByLogin(email);if(!employee)return alert('البريد الإلكتروني غير صحيح أو الحساب معطل');const salt=employee.salt||'';const hash=await hashLocalPassword(password,salt);if(hash!==employee.hash)return alert('كلمة المرور غير صحيحة');if(employee.id==='local-owner')await localRender();else await localEmployeeRender(employee);}
-async function localResetOwnerScreen(){const owner=localOwner();if(!owner)return localSetupScreen();document.getElementById('app').innerHTML='<div class="login"><h2>تغيير كلمة مرور المالك</h2><p class="small">هذا الخيار مخصص لوضع التشغيل المحلي على هذا الجهاز فقط.</p><input id="resetEmail" type="email" value="'+esc(owner.email||'')+'" placeholder="بريد المالك"><input id="resetPassword" type="password" placeholder="كلمة المرور الجديدة — 12 حرفًا على الأقل"><input id="resetPassword2" type="password" placeholder="تأكيد كلمة المرور"><button onclick="localResetOwner()">حفظ كلمة المرور الجديدة</button><button type="button" style="margin-top:8px;background:#8a6a82" onclick="localLoginScreen()">رجوع للدخول</button></div>'}
-async function localResetOwner(){const owner=localOwner();const email=document.getElementById('resetEmail')?.value.trim(),password=document.getElementById('resetPassword')?.value||'',confirm=document.getElementById('resetPassword2')?.value||'';if(!owner||email.toLowerCase()!==String(owner.email||'').toLowerCase())return alert('البريد الإلكتروني غير مطابق لحساب المالك');if(password.length<12)return alert('كلمة المرور يجب أن تكون 12 حرفًا على الأقل');if(password!==confirm)return alert('كلمتا المرور غير متطابقتين');const salt=crypto.randomUUID?crypto.randomUUID():String(Date.now());owner.salt=salt;owner.hash=await hashLocalPassword(password,salt);localStorage.setItem('lf_local_owner',JSON.stringify(owner));alert('تم تغيير كلمة مرور المالك');await localLoginScreen();}
-function localRecreateOwner(){if(!confirm('سيتم حذف بيانات دخول المالك المحلية فقط، مع الإبقاء على المنتجات والطلبات والموظفين. متابعة؟'))return;localStorage.removeItem('lf_local_owner');sessionStorage.removeItem('lf_local_admin_mode');sessionStorage.removeItem('lf_admin_ok');sessionStorage.removeItem('lf_admin_token');localSetupScreen();}
+function logout(){
+  sessionStorage.clear();
+  location.reload();
+}
 
-async function ensureLogin(){
-  const token=apiToken()||sessionStorage.getItem('lf_admin_token')||'';
-  if(token && token!=='local-owner'){
-    try{await apiFetch('/api/me');await render();return}
-    catch(e){sessionStorage.removeItem('lf_admin_ok');sessionStorage.removeItem('lf_admin_token')}
-  }
-  if(sessionStorage.getItem('lf_local_admin_mode')==='1' && localOwner()){await localRender();return}
+/* =========================
+   LOGIN / SETUP
+========================= */
+
+async function start(){
+
   try{
-    const r=await fetch(API_BASE+'/api/setup/status',{cache:'no-store'});
-    if(!r.ok)throw new Error('SETUP_STATUS_FAILED');
-    const s=await r.json();
-    if(s.setupRequired){await setupScreen();return}
-    await login();
-  }catch(e){
-    if(localOwner()) localLoginScreen(); else localSetupScreen();
-  }
-}async function render(){
-  try{
-    const me=await apiFetch('/api/me');
-    currentAdminUser=me.user;
+    const s=await api('/api/setup/status');
 
-    try{
-      legacyRender();
-    }catch(e){
-      console.error('Initial admin render failed',e);
-      const app=document.getElementById('app');
-      if(app) app.innerHTML='<div class="box" style="direction:ltr;text-align:left;color:#b00;white-space:pre-wrap"><b>Admin Render Error:</b>\n'+(e?.stack||e?.message||e)+'</div>';
+    if(s.setupRequired){
+      setupScreen();
+      return;
     }
 
-    try{await syncAdminSettings()}catch(e){console.warn('settings sync',e)}
-    try{await syncAdminData()}catch(e){console.warn('data sync',e)}
-    try{await syncAdminWaitlist()}catch(e){console.warn('waitlist sync',e)}
+    const t=token();
+
+    if(t){
+      try{
+        const m=await api('/api/me');
+        currentUser=m.user;
+        openAdmin();
+        return;
+      }catch{
+        sessionStorage.clear();
+      }
+    }
+
+    loginScreen();
 
   }catch(e){
-    console.warn(e);
-    if(!sessionStorage.getItem('lf_admin_token')) login();
-    else alert('تعذر الاتصال بالخادم: '+e.message);
+    document.getElementById('app').innerHTML=`
+      <div class="login">
+        <h2>تعذر الاتصال بالخادم</h2>
+        <p>${esc(e.message)}</p>
+        <button onclick="start()">إعادة المحاولة</button>
+      </div>
+    `;
   }
 }
-async function downloadBackup(){try{const token=sessionStorage.getItem('lf_admin_token')||'';const base=(window.LF_API_BASE||localStorage.getItem('lf_api_base')||(location.protocol==='file:'?'http://localhost:3000':location.origin)).replace(/\/$/,'');const r=await fetch(base+'/api/admin/backup',{headers:{Authorization:'Bearer '+token}});if(!r.ok)throw new Error('BACKUP_FAILED');const b=await r.blob();const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='ladies-first-backup.sqlite';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}catch(e){alert('تعذر إنشاء النسخة الاحتياطية: '+e.message)}}
 
-=addBrand;addBrand=function(){_addBrand();setTimeout(()=>saveAdminSetting('brands',brands).catch(console.warn),300)};
-const _renameBrand=renameBrand;renameBrand=function(k){_renameBrand(k);setTimeout(()=>saveAdminSetting('brands',brands).catch(console.warn),300)};
-const _delBrand=delBrand;delBrand=function(k){_delBrand(k);setTimeout(()=>saveAdminSetting('brands',brands).catch(console.warn),300)};
-const _updateBrandImage=updateBrandImage;updateBrandImage=function(k,input){_updateBrandImage(k,input);setTimeout(()=>saveAdminSetting('brands',brands).catch(console.warn),500)};
-const _addCategory=addCategory;addCategory=function(){_addCategory();setTimeout(()=>saveAdminSetting('cats',cats).catch(console.warn),500)};
-const _delCategory=delCategory;delCategory=function(k){_delCategory(k);setTimeout(()=>saveAdminSetting('cats',cats).catch(console.warn),300)};
-const _saveHeroTextStyle=saveHeroTextStyle;saveHeroTextStyle=function(){_saveHeroTextStyle();setTimeout(()=>saveAdminSetting('hero_text_style',load('lf_hero_text_style',DEFAULT_HERO_TEXT_STYLE_ADMIN)).catch(console.warn),300)};
-const _addHeroSlide=addHeroSlide;addHeroSlide=function(){_addHeroSlide();setTimeout(()=>saveAdminSetting('hero_slides',getHeroSlidesAdmin()).catch(console.warn),700)};
-const _saveHeroSlide=saveHeroSlide;saveHeroSlide=function(id){_saveHeroSlide(id);setTimeout(()=>saveAdminSetting('hero_slides',getHeroSlidesAdmin()).catch(console.warn),700)};
-const _deleteHeroSlide=deleteHeroSlide;deleteHeroSlide=function(id){_deleteHeroSlide(id);setTimeout(()=>saveAdminSetting('hero_slides',getHeroSlidesAdmin()).catch(console.warn),300)};
-const _setHeroLogo=setHeroLogo;setHeroLogo=function(input){_setHeroLogo(input);setTimeout(()=>saveAdminSetting('hero',load('lf_hero',{logo:LOGO,image:LOGO})).catch(console.warn),700)};
-const _setHeroImage=setHeroImage;setHeroImage=function(input){_setHeroImage(input);setTimeout(()=>saveAdminSetting('hero',load('lf_hero',{logo:LOGO,image:LOGO})).catch(console.warn),700)};
-const _resetHero=resetHero;resetHero=function(){_resetHero();setTimeout(()=>saveAdminSetting('hero',load('lf_hero',{logo:LOGO,image:LOGO})).catch(console.warn),300)};
-const _saveSocialAdmin=saveSocialAdmin;saveSocialAdmin=function(){_saveSocialAdmin();setTimeout(()=>saveAdminSetting('social_links',load('lf_social_links',DEFAULT_SOCIAL_ADMIN)).catch(console.warn),300)};
-const _savePackagingOptions=savePackagingOptions;savePackagingOptions=function(){_savePackagingOptions();setTimeout(()=>saveAdminSetting('packaging_options',load('lf_packaging_options',[])).catch(console.warn),300)};
-const _saveStoreUrl=saveStoreUrl;saveStoreUrl=function(){_saveStoreUrl();setTimeout(()=>saveAdminSetting('store_url',localStorage.getItem('lf_store_url')||'').catch(console.warn),300)};
-const _changePass=changePass;changePass=async function(){const x=document.getElementById('np').value;if(!x||x.length<8)return alert('كلمة المرور يجب أن تكون 8 أحرف على الأقل');try{const me=await apiFetch('/api/me');await apiFetch('/api/admin/users/'+encodeURIComponent(me.user.id)+'/reset-password',{method:'POST',body:JSON.stringify({password:x})});document.getElementById('np').value='';alert('تم تغيير كلمة المرور على الخادم بنجاح')}catch(e){alert('تعذر تغيير كلمة المرور: '+e.message)}};
+function loginScreen(){
+  document.getElementById('top').classList.add('hidden');
 
-window.addEventListener('storage',e=>{if(['lf_products','lf_cats','lf_brands','lf_orders','lf_hero','lf_hero_slides','lf_social_links','lf_users'].includes(e.key))render()});ensureLogin();
-</script></body></html>
+  document.getElementById('app').innerHTML=`
+    <div class="login">
+      <h2>🌸 دخول لوحة التحكم</h2>
+
+      <input id="loginEmail"
+        type="email"
+        placeholder="البريد الإلكتروني">
+
+      <input id="loginPassword"
+        type="password"
+        placeholder="كلمة المرور">
+
+      <button onclick="login()">دخول</button>
+    </div>
+  `;
+}
+
+async function login(){
+
+  try{
+
+    const r=await api('/api/auth/admin-login',{
+      method:'POST',
+      body:JSON.stringify({
+        email:document.getElementById('loginEmail').value.trim(),
+        password:document.getElementById('loginPassword').value
+      })
+    });
+
+    sessionStorage.setItem('lf_admin_token',r.token);
+    sessionStorage.setItem('lf_api_token',r.token);
+    sessionStorage.setItem('lf_admin_ok','1');
+
+    currentUser=r.user;
+
+    openAdmin();
+
+  }catch(e){
+    alert('بيانات الدخول غير صحيحة أو الحساب غير متاح');
+  }
+}
+
+function setupScreen(){
+
+  document.getElementById('app').innerHTML=`
+    <div class="login">
+      <h2>🌸 إعداد المالك لأول مرة</h2>
+
+      <p class="small">
+        أنشئي حساب المالك الرئيسي للوحة التحكم.
+      </p>
+
+      <input id="setupName" placeholder="اسم المالك">
+
+      <input id="setupEmail"
+        type="email"
+        placeholder="البريد الإلكتروني">
+
+      <input id="setupPassword"
+        type="password"
+        placeholder="كلمة المرور — 12 حرفًا على الأقل">
+
+      <button onclick="bootstrap()">إنشاء حساب المالك</button>
+    </div>
+  `;
+}
+
+async function bootstrap(){
+
+  const name=document.getElementById('setupName').value.trim();
+  const email=document.getElementById('setupEmail').value.trim();
+  const password=document.getElementById('setupPassword').value;
+
+  if(!name||!email||password.length<12){
+    return alert('أدخلي البيانات كاملة وكلمة مرور من 12 حرفًا على الأقل');
+  }
+
+  try{
+
+    const r=await api('/api/admin/bootstrap',{
+      method:'POST',
+      body:JSON.stringify({name,email,password})
+    });
+
+    sessionStorage.setItem('lf_admin_token',r.token);
+    sessionStorage.setItem('lf_api_token',r.token);
+    sessionStorage.setItem('lf_admin_ok','1');
+
+    currentUser=r.user;
+
+    openAdmin();
+
+  }catch(e){
+    alert('تعذر إنشاء الحساب: '+e.message);
+  }
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+async function openAdmin(){
+
+  document.getElementById('top').classList.remove('hidden');
+
+  if(Number(currentUser?.is_owner)!==1){
+    document.getElementById('adminsBtn').style.display='none';
+  }
+
+  show('dashboard');
+}
+
+function clearApp(){
+  document.getElementById('app').innerHTML='';
+}
+
+function addSection(title,html){
+  document.getElementById('app').innerHTML=`
+    <div class="box">
+      <div class="sectionTitle">
+        <h2>${title}</h2>
+      </div>
+      ${html}
+    </div>
+  `;
+}
+
+async function show(section){
+
+  clearApp();
+
+  try{
+
+    if(section==='dashboard') await dashboard();
+    if(section==='products') await productsPage();
+    if(section==='orders') await ordersPage();
+    if(section==='users') await usersPage();
+    if(section==='coupons') await couponsPage();
+    if(section==='hero') await heroPage();
+    if(section==='social') await socialPage();
+    if(section==='automation') await automationPage();
+    if(section==='settings') await settingsPage();
+    if(section==='admins') await adminsPage();
+
+  }catch(e){
+
+    document.getElementById('app').innerHTML=`
+      <div class="box">
+        <h2>حدث خطأ</h2>
+        <p>${esc(e.message)}</p>
+        <button onclick="show('${section}')">إعادة المحاولة</button>
+      </div>
+    `;
+  }
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+async function dashboard(){
+
+  const r=await api('/api/admin/dashboard');
+
+  addSection('📊 لوحة المعلومات',`
+
+    <div class="grid">
+
+      <div class="stat">
+        مبيعات اليوم
+        <b>${money(r.sales)}</b>
+      </div>
+
+      <div class="stat">
+        الطلبات اليوم
+        <b>${r.orders}</b>
+      </div>
+
+      <div class="stat">
+        متوسط الطلب
+        <b>${money(r.averageOrder)}</b>
+      </div>
+
+      <div class="stat">
+        الربح الإجمالي
+        <b>${money(r.grossProfit)}</b>
+      </div>
+
+    </div>
+
+    <h3>⚠️ مخزون منخفض</h3>
+
+    ${
+      (r.lowStock||[]).length
+      ? r.lowStock.map(x=>`
+        <div class="card">
+          <b>${esc(x.name)}</b>
+          <span class="badge ${Number(x.stock)<=0?'red':'pink'}">
+            المتبقي: ${x.stock}
+          </span>
+        </div>
+      `).join('')
+      : '<p>لا يوجد مخزون منخفض 🎉</p>'
+    }
+  `);
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+async function loadProducts(){
+
+  const r=await api('/api/products?limit=60');
+  products=r.products||[];
+
+  return products;
+}
+
+async function productsPage(){
+
+  await loadProducts();
+
+  addSection('📦 المنتجات',`
+
+    <div class="actions">
+      <button onclick="newProduct()">➕ إضافة منتج</button>
+      <button onclick="loadProducts().then(productsPage)">🔄 تحديث</button>
+    </div>
+
+    <div id="productEditor"></div>
+
+    <div id="productsList">
+      ${
+        products.length
+        ? products.map(productHTML).join('')
+        : '<p>لا توجد منتجات حاليًا.</p>'
+      }
+    </div>
+  `);
+}
+
+function productHTML(p){
+
+  const image=p.images?.[0]||'';
+
+  return `
+    <div class="card product">
+
+      ${
+        image
+        ? `<img src="${esc(image)}">`
+        : `<div style="width:80px;height:80px;background:#f5e1e8;border-radius:12px;display:grid;place-items:center">🛍️</div>`
+      }
+
+      <div>
+        <h3>${esc(p.name)}</h3>
+
+        <div>
+          <span class="badge">${esc(p.category||'بدون فئة')}</span>
+          <span class="badge">${esc(p.brand||'بدون براند')}</span>
+        </div>
+
+        <p>
+          السعر:
+          <b>${money(p.price)}</b>
+          &nbsp;
+          المخزون:
+          <b>${Number(p.stock||0)}</b>
+        </p>
+      </div>
+
+      <div class="actions">
+        <button onclick="editProduct('${esc(p.id)}')">تعديل</button>
+      </div>
+
+    </div>
+  `;
+}
+
+function newProduct(){
+
+  document.getElementById('productEditor').innerHTML=productForm({
+    id:'',
+    name:'',
+    description:'',
+    brand:'',
+    category:'',
+    price:0,
+    old_price:'',
+    cost_price:0,
+    stock:0,
+    images:[],
+    variants:[],
+    active:true
+  });
+}
+
+function editProduct(id){
+
+  const p=products.find(x=>String(x.id)===String(id));
+  if(!p)return;
+
+  document.getElementById('productEditor').innerHTML=productForm(p);
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+}
+
+function productForm(p){
+
+  return `
+    <div class="editBox">
+
+      <h3>${p.id?'✏️ تعديل المنتج':'➕ منتج جديد'}</h3>
+
+      <input id="p_id" type="hidden" value="${esc(p.id)}">
+
+      <label>اسم المنتج</label>
+      <input id="p_name" value="${esc(p.name)}">
+
+      <div class="row">
+        <div>
+          <label>الفئة</label>
+          <input id="p_category" value="${esc(p.category||'')}">
+        </div>
+
+        <div>
+          <label>البراند</label>
+          <input id="p_brand" value="${esc(p.brand||'')}">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>السعر</label>
+          <input id="p_price" type="number" value="${Number(p.price||0)}">
+        </div>
+
+        <div>
+          <label>السعر القديم</label>
+          <input id="p_old" type="number" value="${p.old_price??''}">
+        </div>
+
+        <div>
+          <label>التكلفة</label>
+          <input id="p_cost" type="number" value="${Number(p.cost_price||0)}">
+        </div>
+      </div>
+
+      <label>المخزون</label>
+      <input id="p_stock" type="number" value="${Number(p.stock||0)}">
+
+      <label>الوصف</label>
+      <textarea id="p_description">${esc(p.description||p.desc||'')}</textarea>
+
+      <label>رابط الصورة الرئيسية</label>
+      <input id="p_image" value="${esc(p.images?.[0]||'')}" placeholder="https://...">
+
+      <label>
+        <input id="p_active" type="checkbox" ${p.active!==false?'checked':''}>
+        المنتج فعال
+      </label>
+
+      <div class="actions">
+        <button onclick="saveProduct()">💾 حفظ</button>
+        <button class="gray" onclick="document.getElementById('productEditor').innerHTML=''">إلغاء</button>
+      </div>
+
+    </div>
+  `;
+}
+
+async function saveProduct(){
+
+  const id=document.getElementById('p_id').value.trim();
+
+  const image=document.getElementById('p_image').value.trim();
+
+  const payload={
+    id:id||undefined,
+    name:document.getElementById('p_name').value.trim(),
+    description:document.getElementById('p_description').value.trim(),
+    brand:document.getElementById('p_brand').value.trim(),
+    category:document.getElementById('p_category').value.trim(),
+    price:Number(document.getElementById('p_price').value)||0,
+    old_price:Number(document.getElementById('p_old').value)||null,
+    cost_price:Number(document.getElementById('p_cost').value)||0,
+    stock:Math.max(0,Number(document.getElementById('p_stock').value)||0),
+    images:image?[image]:[],
+    variants:[],
+    active:document.getElementById('p_active').checked,
+    metadata:{}
+  };
+
+  if(!payload.name){
+    return alert('اكتبي اسم المنتج');
+  }
+
+  try{
+
+    await api('/api/admin/products',{
+      method:'POST',
+      body:JSON.stringify(payload)
+    });
+
+    alert('تم حفظ المنتج');
+
+    await productsPage();
+
+  }catch(e){
+    alert('تعذر حفظ المنتج: '+e.message);
+  }
+}
+
+/* =========================
+   ORDERS
+========================= */
+
+async function ordersPage(){
+
+  const r=await api('/api/admin/orders');
+
+  orders=r.orders||[];
+
+  addSection('🛍️ الطلبات',`
+
+    <button onclick="ordersPage()">🔄 تحديث</button>
+
+    <div style="overflow:auto;margin-top:15px">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>الطلب</th>
+            <th>العميلة</th>
+            <th>المجموع</th>
+            <th>الحالة</th>
+            <th>التاريخ</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          ${
+            orders.map(o=>`
+
+              <tr>
+
+                <td>${esc(o.id)}</td>
+
+                <td>
+                  ${esc(o.customer_name||'')}
+                  <br>
+                  <span class="small">${esc(o.customer_contact||'')}</span>
+                </td>
+
+                <td>${money(o.total)}</td>
+
+                <td>
+                  <select onchange="changeOrderStatus('${esc(o.id)}',this.value)">
+                    ${statusOptions(o.status)}
+                  </select>
+                </td>
+
+                <td>${esc(o.created_at||'')}</td>
+
+                <td>
+                  <button onclick="orderDetails('${esc(o.id)}')">تفاصيل</button>
+                </td>
+
+              </tr>
+
+            `).join('')
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div id="orderDetails"></div>
+  `);
+}
+
+function statusOptions(current){
+
+  const map={
+    new:'جديد',
+    confirmed:'قيد التجهيز',
+    shipped:'قيد الشحن',
+    delivered:'تم التوصيل',
+    cancelled:'ملغي'
+  };
+
+  return Object.entries(map)
+    .map(([v,n])=>
+      `<option value="${v}" ${v===current?'selected':''}>${n}</option>`
+    ).join('');
+}
+
+async function changeOrderStatus(id,status){
+
+  try{
+
+    await api('/api/admin/orders/'+encodeURIComponent(id)+'/status',{
+      method:'PATCH',
+      body:JSON.stringify({status})
+    });
+
+    alert('تم تحديث حالة الطلب');
+
+  }catch(e){
+    alert('تعذر تحديث الطلب: '+e.message);
+  }
+}
+
+async function orderDetails(id){
+
+  try{
+
+    const r=await api('/api/admin/orders/'+encodeURIComponent(id));
+
+    document.getElementById('orderDetails').innerHTML=`
+      <div class="editBox">
+
+        <h3>تفاصيل الطلب</h3>
+
+        <p><b>الاسم:</b> ${esc(r.order.customer_name)}</p>
+        <p><b>التواصل:</b> ${esc(r.order.customer_contact)}</p>
+        <p><b>العنوان:</b> ${esc(r.order.customer_address)}</p>
+        <p><b>طريقة الدفع:</b> ${esc(r.order.payment_method)}</p>
+
+        <hr>
+
+        ${
+          (r.items||[]).map(i=>`
+            <div class="card">
+              ${esc(i.name_snapshot)}
+              × ${i.quantity}
+              — ${money(i.price_snapshot)}
+            </div>
+          `).join('')
+        }
+
+        <h3>المجموع: ${money(r.order.total)}</h3>
+
+      </div>
+    `;
+
+  }catch(e){
+    alert(e.message);
+  }
+}
+
+/* =========================
+   USERS
+========================= */
+
+async function usersPage(){
+
+  const r=await api('/api/admin/users');
+
+  users=r.users||[];
+
+  addSection('👥 المستخدمون',`
+
+    <button onclick="usersPage()">🔄 تحديث</button>
+
+    <div style="overflow:auto;margin-top:15px">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>الاسم</th>
+            <th>التواصل</th>
+            <th>الجنس</th>
+            <th>العمر</th>
+            <th>الدور</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        ${
+          users.map(u=>`
+
+            <tr>
+
+              <td>${esc(u.name)}</td>
+              <td>${esc(u.contact)}</td>
+              <td>${genderName(u.gender)}</td>
+              <td>${u.age??'-'}</td>
+              <td>${esc(u.role)}</td>
+
+              <td>
+                <button onclick="editUser('${esc(u.id)}')">
+                  تعديل
+                </button>
+              </td>
+
+            </tr>
+
+          `).join('')
+        }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div id="userEditor"></div>
+  `);
+}
+
+function genderName(g){
+  if(g==='male')return 'ذكر';
+  if(g==='female')return 'أنثى';
+  if(g==='other')return 'آخر';
+  return 'غير محدد';
+}
+
+function editUser(id){
+
+  const u=users.find(x=>String(x.id)===String(id));
+  if(!u)return;
+
+  document.getElementById('userEditor').innerHTML=`
+    <div class="editBox">
+
+      <h3>تعديل بيانات المستخدم</h3>
+
+      <input id="u_name" value="${esc(u.name)}">
+      <input id="u_contact" value="${esc(u.contact)}">
+      <input id="u_email" value="${esc(u.email||'')}">
+
+      <select id="u_gender">
+        <option value="female" ${u.gender==='female'?'selected':''}>أنثى</option>
+        <option value="male" ${u.gender==='male'?'selected':''}>ذكر</option>
+        <option value="other" ${u.gender==='other'?'selected':''}>آخر</option>
+        <option value="unspecified" ${u.gender==='unspecified'?'selected':''}>غير محدد</option>
+      </select>
+
+      <input id="u_age" type="number" min="13" max="120" value="${u.age??''}">
+
+      <div class="actions">
+        <button onclick="saveUser('${esc(u.id)}')">💾 حفظ</button>
+        <button class="pink" onclick="resetUserPassword('${esc(u.id)}')">🔑 تغيير كلمة المرور</button>
+      </div>
+
+    </div>
+  `;
+
+  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+}
+
+async function saveUser(id){
+
+  try{
+
+    await api('/api/admin/users/'+encodeURIComponent(id),{
+      method:'PATCH',
+      body:JSON.stringify({
+        name:document.getElementById('u_name').value.trim(),
+        contact:document.getElementById('u_contact').value.trim(),
+        email:document.getElementById('u_email').value.trim(),
+        gender:document.getElementById('u_gender').value,
+        age:Number(document.getElementById('u_age').value)||null
+      })
+    });
+
+    alert('تم حفظ بيانات المستخدم');
+
+    await usersPage();
+
+  }catch(e){
+    alert('تعذر حفظ المستخدم: '+e.message);
+  }
+}
+
+async function resetUserPassword(id){
+
+  const password=prompt('أدخلي كلمة المرور الجديدة — 8 أحرف على الأقل');
+
+  if(!password||password.length<8)return;
+
+  try{
+
+    await api('/api/admin/users/'+encodeURIComponent(id)+'/reset-password',{
+      method:'POST',
+      body:JSON.stringify({password})
+    });
+
+    alert('تم تغيير كلمة المرور');
+
+  }catch(e){
+    alert(e.message);
+  }
+}
+
+/* =========================
+   COUPONS
+========================= */
+
+async function couponsPage(){
+
+  const r=await api('/api/admin/coupons');
+
+  coupons=r.coupons||[];
+
+  addSection('🎟️ أكواد الخصم',`
+
+    <div class="editBox">
+
+      <h3>إضافة كود</h3>
+
+      <div class="row">
+        <input id="couponCode" placeholder="الكود">
+
+        <select id="couponType">
+          <option value="percent">نسبة %</option>
+          <option value="fixed">مبلغ ثابت</option>
+        </select>
+
+        <input id="couponValue" type="number" placeholder="القيمة">
+      </div>
+
+      <button onclick="addCoupon()">إضافة</button>
+
+    </div>
+
+    ${
+      coupons.map(c=>`
+
+        <div class="card">
+
+          <b>${esc(c.code)}</b>
+
+          <span class="badge">
+            ${c.type==='percent'?c.value+'%':money(c.value)}
+          </span>
+
+          <span class="badge ${c.active?'green':'red'}">
+            ${c.active?'فعال':'متوقف'}
+          </span>
+
+          <div class="actions">
+
+            <button onclick="toggleCoupon('${esc(c.id)}',${c.active?1:0})">
+              ${c.active?'إيقاف':'تفعيل'}
+            </button>
+
+            <button class="red" onclick="deleteCoupon('${esc(c.id)}')">
+              حذف
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join('')
+    }
+  `);
+}
+
+async function addCoupon(){
+
+  const code=document.getElementById('couponCode').value.trim();
+  const type=document.getElementById('couponType').value;
+  const value=Number(document.getElementById('couponValue').value);
+
+  if(!code||!value)return alert('أدخلي الكود والقيمة');
+
+  try{
+
+    await api('/api/admin/coupons',{
+      method:'POST',
+      body:JSON.stringify({code,type,value})
+    });
+
+    await couponsPage();
+
+  }catch(e){
+    alert(e.message);
+  }
+}
+
+async function toggleCoupon(id,active){
+
+  await api('/api/admin/coupons/'+encodeURIComponent(id),{
+    method:'PATCH',
+    body:JSON.stringify({active:!Boolean(active)})
+  });
+
+  await couponsPage();
+}
+
+async function deleteCoupon(id){
+
+  if(!confirm('حذف كود الخصم؟'))return;
+
+  await api('/api/admin/coupons/'+encodeURIComponent(id),{
+    method:'DELETE'
+  });
+
+  await couponsPage();
+}
+
+/* =========================
+   HERO / SLIDER
+========================= */
+
+async function heroPage(){
+
+  const r=await api('/api/admin/settings');
+
+  settings=r.settings||{};
+
+  const hero=settings.hero||{};
+  const slides=Array.isArray(settings.hero_slides)
+    ?settings.hero_slides:[];
+
+  addSection('🖼️ الشعار والسلايدر',`
+
+    <h3>الشعار</h3>
+
+    <input id="heroLogo"
+      value="${esc(hero.logo||'')}"
+      placeholder="رابط الشعار">
+
+    <button onclick="saveHero()">💾 حفظ الشعار</button>
+
+    <hr>
+
+    <h3>السلايدر</h3>
+
+    <div id="slides">
+
+      ${
+        slides.map((s,i)=>`
+
+          <div class="card">
+
+            <input id="slideImg_${i}"
+              value="${esc(s.image||'')}"
+              placeholder="رابط الصورة">
+
+            <input id="slideTitle_${i}"
+              value="${esc(s.title||'')}"
+              placeholder="العنوان">
+
+            <input id="slideText_${i}"
+              value="${esc(s.text||'')}"
+              placeholder="النص">
+
+            <button class="red" onclick="removeSlide(${i})">
+              حذف
+            </button>
+
+          </div>
+
+        `).join('')
+      }
+
+    </div>
+
+    <button onclick="addSlide()">➕ إضافة سلايد</button>
+    <button class="green" onclick="saveSlides()">💾 حفظ السلايدر</button>
+  `);
+}
+
+async function saveHero(){
+
+  const logo=document.getElementById('heroLogo').value.trim();
+
+  await api('/api/admin/settings/hero',{
+    method:'PUT',
+    body:JSON.stringify({
+      value:{logo,image:logo}
+    })
+  });
+
+  alert('تم حفظ الشعار');
+}
+
+async function addSlide(){
+
+  const r=await api('/api/admin/settings');
+
+  const slides=Array.isArray(r.settings.hero_slides)
+    ?r.settings.hero_slides:[ ];
+
+  slides.push({
+    image:'',
+    title:'',
+    text:'',
+    link:''
+  });
+
+  await api('/api/admin/settings/hero_slides',{
+    method:'PUT',
+    body:JSON.stringify({value:slides})
+  });
+
+  await heroPage();
+}
+
+async function removeSlide(i){
+
+  const r=await api('/api/admin/settings');
+
+  const slides=Array.isArray(r.settings.hero_slides)
+    ?r.settings.hero_slides:[ ];
+
+  slides.splice(i,1);
+
+  await api('/api/admin/settings/hero_slides',{
+    method:'PUT',
+    body:JSON.stringify({value:slides})
+  });
+
+  await heroPage();
+}
+
+async function saveSlides(){
+
+  const r=await api('/api/admin/settings');
+
+  const old=Array.isArray(r.settings.hero_slides)
+    ?r.settings.hero_slides:[ ];
+
+  const slides=old.map((s,i)=>({
+    ...s,
+    image:document.getElementById('slideImg_'+i)?.value.trim()||'',
+    title:document.getElementById('slideTitle_'+i)?.value.trim()||'',
+    text:document.getElementById('slideText_'+i)?.value.trim()||''
+  }));
+
+  await api('/api/admin/settings/hero_slides',{
+    method:'PUT',
+    body:JSON.stringify({value:slides})
+  });
+
+  alert('تم حفظ السلايدر');
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+async function socialPage(){
+
+  const r=await api('/api/admin/settings');
+
+  settings=r.settings||{};
+
+  const social=settings.social_links||{
+    instagram:'',
+    facebook:'',
+    tiktok:'',
+    whatsapp:'',
+    telegram:''
+  };
+
+  addSection('📱 مواقع التواصل',`
+
+    <input id="socialInstagram"
+      value="${esc(social.instagram||'')}"
+      placeholder="Instagram">
+
+    <input id="socialFacebook"
+      value="${esc(social.facebook||'')}"
+      placeholder="Facebook">
+
+    <input id="socialTikTok"
+      value="${esc(social.tiktok||'')}"
+      placeholder="TikTok">
+
+    <input id="socialWhatsApp"
+      value="${esc(social.whatsapp||'')}"
+      placeholder="WhatsApp">
+
+    <input id="socialTelegram"
+      value="${esc(social.telegram||'')}"
+      placeholder="Telegram">
+
+    <button onclick="saveSocial()">💾 حفظ</button>
+  `);
+}
+
+async function saveSocial(){
+
+  const value={
+    instagram:document.getElementById('socialInstagram').value.trim(),
+    facebook:document.getElementById('socialFacebook').value.trim(),
+    tiktok:document.getElementById('socialTikTok').value.trim(),
+    whatsapp:document.getElementById('socialWhatsApp').value.trim(),
+    telegram:document.getElementById('socialTelegram').value.trim()
+  };
+
+  await api('/api/admin/settings/social_links',{
+    method:'PUT',
+    body:JSON.stringify({value})
+  });
+
+  alert('تم حفظ مواقع التواصل');
+}
+
+/* =========================
+   AUTOMATION / LOYALTY
+========================= */
+
+async function automationPage(){
+
+  const r=await api('/api/admin/settings');
+
+  settings=r.settings||{};
+
+  const l=settings.loyalty||{
+    enabled:false,
+    earnMode:'order',
+    pointsPerOrder:10,
+    amountPerPoint:10,
+    pointsPerAmount:1,
+    pointValue:.1,
+    redeemEnabled:true,
+    awardOn:'delivered'
+  };
+
+  const w=settings.whatsapp_automation||{
+    enabled:false,
+    abandonedEnabled:true,
+    abandonedAfterDays:7,
+    lowStockEnabled:true,
+    lowStockThreshold:2,
+    cooldownDays:7,
+    languageCode:'ar'
+  };
+
+  addSection('🤖 الأتمتة والنقاط',`
+
+    <h3>نظام النقاط</h3>
+
+    <label>
+      <input id="loyaltyEnabled" type="checkbox" ${l.enabled?'checked':''}>
+      تفعيل النقاط
+    </label>
+
+    <select id="earnMode">
+      <option value="order" ${l.earnMode==='order'?'selected':''}>
+        نقاط لكل طلب
+      </option>
+      <option value="amount" ${l.earnMode==='amount'?'selected':''}>
+        نقاط حسب قيمة الطلب
+      </option>
+    </select>
+
+    <input id="pointsPerOrder"
+      type="number"
+      value="${Number(l.pointsPerOrder||0)}"
+      placeholder="النقاط لكل طلب">
+
+    <input id="amountPerPoint"
+      type="number"
+      value="${Number(l.amountPerPoint||10)}"
+      placeholder="المبلغ لكل نقطة">
+
+    <input id="pointsPerAmount"
+      type="number"
+      value="${Number(l.pointsPerAmount||1)}"
+      placeholder="عدد النقاط">
+
+    <input id="pointValue"
+      type="number"
+      step="0.01"
+      value="${Number(l.pointValue||0.1)}"
+      placeholder="قيمة النقطة">
+
+    <label>
+      <input id="redeemEnabled" type="checkbox" ${l.redeemEnabled!==false?'checked':''}>
+      السماح باستبدال النقاط
+    </label>
+
+    <button onclick="saveLoyalty()">💾 حفظ النقاط</button>
+
+    <hr>
+
+    <h3>WhatsApp Automation</h3>
+
+    <label>
+      <input id="waEnabled" type="checkbox" ${w.enabled?'checked':''}>
+      تفعيل الأتمتة
+    </label>
+
+    <label>
+      <input id="waAbandoned" type="checkbox" ${w.abandonedEnabled!==false?'checked':''}>
+      تنبيه السلة المتروكة
+    </label>
+
+    <input id="waAbandonedDays"
+      type="number"
+      value="${Number(w.abandonedAfterDays||7)}"
+      placeholder="بعد كم يوم؟">
+
+    <label>
+      <input id="waLowStock" type="checkbox" ${w.lowStockEnabled!==false?'checked':''}>
+      تنبيه المخزون المنخفض
+    </label>
+
+    <input id="waThreshold"
+      type="number"
+      value="${Number(w.lowStockThreshold||2)}"
+      placeholder="حد المخزون">
+
+    <input id="waCooldown"
+      type="number"
+      value="${Number(w.cooldownDays||7)}"
+      placeholder="مدة الانتظار بين التنبيهات">
+
+    <button onclick="saveWhatsApp()">💾 حفظ الأتمتة</button>
+  `);
+}
+
+async function saveLoyalty(){
+
+  const value={
+    enabled:document.getElementById('loyaltyEnabled').checked,
+    earnMode:document.getElementById('earnMode').value,
+    pointsPerOrder:Number(document.getElementById('pointsPerOrder').value)||0,
+    amountPerPoint:Number(document.getElementById('amountPerPoint').value)||10,
+    pointsPerAmount:Number(document.getElementById('pointsPerAmount').value)||1,
+    pointValue:Number(document.getElementById('pointValue').value)||0,
+    redeemEnabled:document.getElementById('redeemEnabled').checked,
+    awardOn:'delivered'
+  };
+
+  await api('/api/admin/settings/loyalty',{
+    method:'PUT',
+    body:JSON.stringify({value})
+  });
+
+  alert('تم حفظ إعدادات النقاط');
+}
+
+async function saveWhatsApp(){
+
+  const value={
+    enabled:document.getElementById('waEnabled').checked,
+    abandonedEnabled:document.getElementById('waAbandoned').checked,
+    abandonedAfterDays:Number(document.getElementById('waAbandonedDays').value)||7,
+    lowStockEnabled:document.getElementById('waLowStock').checked,
+    lowStockThreshold:Number(document.getElementById('waThreshold').value)||2,
+    cooldownDays:Number(document.getElementById('waCooldown').value)||7,
+    languageCode:'ar'
+  };
+
+  await api('/api/admin/settings/whatsapp_automation',{
+    method:'PUT',
+    body:JSON.stringify({value})
+  });
+
+  alert('تم حفظ إعدادات WhatsApp');
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+async function settingsPage(){
+
+  const r=await api('/api/admin/settings');
+
+  settings=r.settings||{};
+
+  addSection('⚙️ الإعدادات',`
+
+    <h3>رابط المتجر</h3>
+
+    <input id="storeUrl"
+      value="${esc(settings.store_url||'')}"
+      placeholder="https://...">
+
+    <button onclick="saveSimpleSetting('store_url','storeUrl')">
+      حفظ
+    </button>
+
+    <h3>خيارات التغليف</h3>
+
+    <textarea id="packaging">${esc(
+      JSON.stringify(settings.packaging_options||[],null,2)
+    )}</textarea>
+
+    <button onclick="saveJSONSetting('packaging_options','packaging')">
+      حفظ
+    </button>
+
+    <h3>إعدادات الموقع العامة</h3>
+
+    <textarea id="general">${esc(
+      JSON.stringify(settings.general||{},null,2)
+    )}</textarea>
+
+    <button onclick="saveJSONSetting('general','general')">
+      حفظ
+    </button>
+
+    <hr>
+
+    <p class="small">
+      حساب الإدارة الحالي:
+      ${esc(currentUser?.name||'')}
+      —
+      ${esc(currentUser?.email||currentUser?.contact||'')}
+    </p>
+  `);
+}
+
+async function saveSimpleSetting(key,id){
+
+  await api('/api/admin/settings/'+encodeURIComponent(key),{
+    method:'PUT',
+    body:JSON.stringify({
+      value:document.getElementById(id).value.trim()
+    })
+  });
+
+  alert('تم الحفظ');
+}
+
+async function saveJSONSetting(key,id){
+
+  let value;
+
+  try{
+    value=JSON.parse(document.getElementById(id).value);
+  }catch{
+    return alert('JSON غير صحيح');
+  }
+
+  await api('/api/admin/settings/'+encodeURIComponent(key),{
+    method:'PUT',
+    body:JSON.stringify({value})
+  });
+
+  alert('تم الحفظ');
+}
+
+/* =========================
+   ADMINS
+========================= */
+
+async function adminsPage(){
+
+  if(Number(currentUser?.is_owner)!==1){
+    return addSection('🛡️ الإداريون','<p>هذه الصفحة للمالك فقط.</p>');
+  }
+
+  const r=await api('/api/admin/admins');
+
+  addSection('🛡️ الإداريون',`
+
+    <div class="editBox">
+
+      <h3>إضافة إداري</h3>
+
+      <input id="adminName" placeholder="الاسم">
+
+      <input id="adminEmail" placeholder="البريد الإلكتروني">
+
+      <input id="adminContact" placeholder="رقم التواصل">
+
+      <input id="adminPassword"
+        type="password"
+        placeholder="كلمة المرور">
+
+      <button onclick="addAdmin()">➕ إضافة إداري</button>
+
+    </div>
+
+    ${
+      (r.admins||[]).map(a=>`
+
+        <div class="card">
+
+          <h3>${esc(a.name)}</h3>
+
+          <p>
+            ${esc(a.email||a.contact)}
+          </p>
+
+          <span class="badge ${a.active?'green':'red'}">
+            ${a.active?'فعال':'معطل'}
+          </span>
+
+          ${
+            Number(a.is_owner)
+            ? '<span class="badge pink">المالك</span>'
+            : `
+              <div class="actions">
+                <button onclick="toggleAdmin('${esc(a.id)}',${a.active?1:0})">
+                  ${a.active?'تعطيل':'تفعيل'}
+                </button>
+
+                <button onclick="changeAdminPassword('${esc(a.id)}')">
+                  كلمة المرور
+                </button>
+
+                <button class="red" onclick="deleteAdmin('${esc(a.id)}')">
+                  حذف
+                </button>
+              </div>
+            `
+          }
+
+        </div>
+
+      `).join('')
+    }
+  `);
+}
+
+async function addAdmin(){
+
+  const name=document.getElementById('adminName').value.trim();
+  const email=document.getElementById('adminEmail').value.trim();
+  const contact=document.getElementById('adminContact').value.trim()||email;
+  const password=document.getElementById('adminPassword').value;
+
+  if(!name||!email||password.length<8){
+    return alert('أدخلي البيانات وكلمة مرور من 8 أحرف على الأقل');
+  }
+
+  try{
+
+    await api('/api/admin/admins',{
+      method:'POST',
+      body:JSON.stringify({
+        name,
+        email,
+        contact,
+        password
+      })
+    });
+
+    alert('تم إنشاء الإداري');
+
+    await adminsPage();
+
+  }catch(e){
+    alert(e.message);
+  }
+}
+
+async function toggleAdmin(id,active){
+
+  await api('/api/admin/admins/'+encodeURIComponent(id),{
+    method:'PATCH',
+    body:JSON.stringify({
+      active:!Boolean(active)
+    })
+  });
+
+  await adminsPage();
+}
+
+async function changeAdminPassword(id){
+
+  const password=prompt('كلمة المرور الجديدة');
+
+  if(!password||password.length<8)return;
+
+  await api('/api/admin/admins/'+encodeURIComponent(id),{
+    method:'PATCH',
+    body:JSON.stringify({password})
+  });
+
+  alert('تم تغيير كلمة المرور');
+}
+
+async function deleteAdmin(id){
+
+  if(!confirm('تعطيل هذا الإداري؟'))return;
+
+  await api('/api/admin/admins/'+encodeURIComponent(id),{
+    method:'DELETE'
+  });
+
+  await adminsPage();
+}
+
+/* =========================
+   BACKUP
+========================= */
+
+async function downloadBackup(){
+
+  try{
+
+    const r=await fetch(API_BASE+'/api/admin/backup',{
+      headers:{
+        Authorization:'Bearer '+token()
+      }
+    });
+
+    if(!r.ok)throw new Error('BACKUP_FAILED');
+
+    const blob=await r.blob();
+
+    const a=document.createElement('a');
+
+    a.href=URL.createObjectURL(blob);
+    a.download='ladies-first-backup.sqlite';
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+
+  }catch(e){
+
+    alert('تعذر إنشاء النسخة الاحتياطية: '+e.message);
+  }
+}
+
+/* =========================
+   START
+========================= */
+
+start();
+
+</script>
+
+</body>
+</html>
