@@ -1,0 +1,13 @@
+services:
+  ladies-first:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ladies_first_data:/app/backend/data
+
+volumes:
+  ladies_first_data:

@@ -1,0 +1,19 @@
+{
+  "name": "Ladies First",
+  "short_name": "Ladies First",
+  "description": "متجر Ladies First الإلكتروني",
+  "start_url": "/",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#63345e",
+  "background_color": "#fffafc",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
