@@ -4,6 +4,10 @@ import crypto from 'node:crypto';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'change-this-secret';
 
+/* =========================
+   Password helpers
+========================= */
+
 export async function hashPassword(password) {
   return bcrypt.hash(String(password), 12);
 }
@@ -13,6 +17,10 @@ export async function verifyPassword(password, hash) {
   return bcrypt.compare(String(password), String(hash));
 }
 
+/* =========================
+   JWT helpers
+========================= */
+
 export function signToken(payload, expiresIn = '7d') {
   return jwt.sign(payload, JWT_SECRET, { expiresIn });
 }
@@ -21,42 +29,88 @@ export function verifyToken(token) {
   return jwt.verify(token, JWT_SECRET);
 }
 
+/* =========================
+   ID
+========================= */
+
 export function createId() {
   return crypto.randomUUID();
 }
 
-export function authRequired(req, res, next) {
-  try {
-    const header = req.headers.authorization || '';
+/* =========================
+   Authentication
+========================= */
 
-    const token = header.startsWith('Bearer ')
-      ? header.slice(7)
-      : '';
+/*
+  auth()       = authentication required
+  auth(false)  = authentication optional
+*/
 
-    if (!token) {
+export function auth(required = true) {
+  return (req, res, next) => {
+    try {
+      const header = req.headers.authorization || '';
+
+      const token = header.startsWith('Bearer ')
+        ? header.slice(7)
+        : '';
+
+      // No token
+      if (!token) {
+        if (!required) {
+          return next();
+        }
+
+        return res.status(401).json({
+          error: 'UNAUTHORIZED'
+        });
+      }
+
+      const decoded = verifyToken(token);
+
+      // Keep both names for compatibility
+      req.auth = decoded;
+      req.user = decoded;
+
+      next();
+
+    } catch {
+      if (!required) {
+        return next();
+      }
+
       return res.status(401).json({
-        error: 'UNAUTHORIZED'
+        error: 'INVALID_TOKEN'
       });
     }
-
-    req.auth = verifyToken(token);
-    next();
-
-  } catch {
-    return res.status(401).json({
-      error: 'INVALID_TOKEN'
-    });
-  }
+  };
 }
 
+/* =========================
+   Required auth compatibility
+========================= */
+
+export function authRequired(req, res, next) {
+  return auth(true)(req, res, next);
+}
+
+/* =========================
+   Admin / Owner
+========================= */
+
 export function adminOnly(req, res, next) {
-  if (!req.auth?.is_admin) {
+  const authData = req.auth || req.user;
+
+  if (
+    !authData?.is_admin &&
+    authData?.role !== 'admin'
+  ) {
     return res.status(403).json({
       error: 'ADMIN_REQUIRED'
     });
   }
 
-  if (req.auth.active === 0) {
+  if (Number(authData?.active) === 0) {
     return res.status(403).json({
       error: 'ADMIN_DISABLED'
     });
@@ -66,10 +120,18 @@ export function adminOnly(req, res, next) {
 }
 
 export function ownerOnly(req, res, next) {
+  const authData = req.auth || req.user;
+
   if (
-    !req.auth?.is_admin ||
-    Number(req.auth.is_owner) !== 1
+    !authData?.is_admin &&
+    authData?.role !== 'admin'
   ) {
+    return res.status(403).json({
+      error: 'OWNER_REQUIRED'
+    });
+  }
+
+  if (Number(authData?.is_owner) !== 1) {
     return res.status(403).json({
       error: 'OWNER_REQUIRED'
     });
@@ -78,14 +140,23 @@ export function ownerOnly(req, res, next) {
   next();
 }
 
-export function hasPermission(auth, permission) {
-  if (!auth?.is_admin) return false;
+/* =========================
+   Permissions
+========================= */
 
-  if (Number(auth.is_owner) === 1) {
+export function hasPermission(authData, permission) {
+  if (
+    !authData?.is_admin &&
+    authData?.role !== 'admin'
+  ) {
+    return false;
+  }
+
+  if (Number(authData.is_owner) === 1) {
     return true;
   }
 
-  const permissions = auth.permissions || {};
+  const permissions = authData.permissions || {};
 
   return (
     permissions['*'] === true ||
@@ -95,7 +166,9 @@ export function hasPermission(auth, permission) {
 
 export function requirePermission(permission) {
   return (req, res, next) => {
-    if (!hasPermission(req.auth, permission)) {
+    const authData = req.auth || req.user;
+
+    if (!hasPermission(authData, permission)) {
       return res.status(403).json({
         error: 'PERMISSION_DENIED',
         permission
@@ -106,6 +179,8 @@ export function requirePermission(permission) {
   };
 }
 
-// Compatibility aliases used by server.js
-export const auth = authRequired;
+/* =========================
+   Compatibility aliases
+========================= */
+
 export const id = createId;
