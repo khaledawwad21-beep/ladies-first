@@ -15,7 +15,7 @@ const app=express();
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const siteRoot=path.resolve(__dirname,'..','..');
 app.set('trust proxy', 1);
-app.use(helmet());
+app.use(helmet({contentSecurityPolicy:false}));
 const allowedOrigins=(process.env.CORS_ORIGIN||'').split(',').map(x=>x.trim()).filter(Boolean);
 app.use(cors({origin:(origin,cb)=>{if(!origin||!allowedOrigins.length||allowedOrigins.includes(origin))return cb(null,true);cb(new Error('CORS_ORIGIN_DENIED'));}}));
 app.use(express.json({limit:'4mb'}));
