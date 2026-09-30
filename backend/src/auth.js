@@ -5,20 +5,25 @@ import crypto from 'node:crypto';
 const JWT_SECRET = process.env.JWT_SECRET || 'change-this-secret';
 
 /* =========================
-   Password helpers
+   Password
 ========================= */
 
-export async function hashPassword(password) {
-  return bcrypt.hash(String(password), 12);
+export function hashPassword(password) {
+  return bcrypt.hashSync(String(password), 12);
 }
 
-export async function verifyPassword(password, hash) {
+export function verifyPassword(password, hash) {
   if (!hash) return false;
-  return bcrypt.compare(String(password), String(hash));
+
+  try {
+    return bcrypt.compareSync(String(password), String(hash));
+  } catch {
+    return false;
+  }
 }
 
 /* =========================
-   JWT helpers
+   JWT
 ========================= */
 
 export function signToken(payload, expiresIn = '7d') {
@@ -41,11 +46,6 @@ export function createId() {
    Authentication
 ========================= */
 
-/*
-  auth()       = authentication required
-  auth(false)  = authentication optional
-*/
-
 export function auth(required = true) {
   return (req, res, next) => {
     try {
@@ -55,11 +55,8 @@ export function auth(required = true) {
         ? header.slice(7)
         : '';
 
-      // No token
       if (!token) {
-        if (!required) {
-          return next();
-        }
+        if (!required) return next();
 
         return res.status(401).json({
           error: 'UNAUTHORIZED'
@@ -68,16 +65,13 @@ export function auth(required = true) {
 
       const decoded = verifyToken(token);
 
-      // Keep both names for compatibility
       req.auth = decoded;
       req.user = decoded;
 
       next();
 
     } catch {
-      if (!required) {
-        return next();
-      }
+      if (!required) return next();
 
       return res.status(401).json({
         error: 'INVALID_TOKEN'
@@ -86,31 +80,27 @@ export function auth(required = true) {
   };
 }
 
-/* =========================
-   Required auth compatibility
-========================= */
-
 export function authRequired(req, res, next) {
   return auth(true)(req, res, next);
 }
 
 /* =========================
-   Admin / Owner
+   Admin
 ========================= */
 
 export function adminOnly(req, res, next) {
-  const authData = req.auth || req.user;
+  const user = req.auth || req.user;
 
   if (
-    !authData?.is_admin &&
-    authData?.role !== 'admin'
+    !user?.is_admin &&
+    user?.role !== 'admin'
   ) {
     return res.status(403).json({
       error: 'ADMIN_REQUIRED'
     });
   }
 
-  if (Number(authData?.active) === 0) {
+  if (Number(user?.active) === 0) {
     return res.status(403).json({
       error: 'ADMIN_DISABLED'
     });
@@ -119,19 +109,23 @@ export function adminOnly(req, res, next) {
   next();
 }
 
+/* =========================
+   Owner
+========================= */
+
 export function ownerOnly(req, res, next) {
-  const authData = req.auth || req.user;
+  const user = req.auth || req.user;
 
   if (
-    !authData?.is_admin &&
-    authData?.role !== 'admin'
+    !user?.is_admin &&
+    user?.role !== 'admin'
   ) {
     return res.status(403).json({
       error: 'OWNER_REQUIRED'
     });
   }
 
-  if (Number(authData?.is_owner) !== 1) {
+  if (Number(user?.is_owner) !== 1) {
     return res.status(403).json({
       error: 'OWNER_REQUIRED'
     });
@@ -144,19 +138,19 @@ export function ownerOnly(req, res, next) {
    Permissions
 ========================= */
 
-export function hasPermission(authData, permission) {
+export function hasPermission(user, permission) {
   if (
-    !authData?.is_admin &&
-    authData?.role !== 'admin'
+    !user?.is_admin &&
+    user?.role !== 'admin'
   ) {
     return false;
   }
 
-  if (Number(authData.is_owner) === 1) {
+  if (Number(user?.is_owner) === 1) {
     return true;
   }
 
-  const permissions = authData.permissions || {};
+  const permissions = user?.permissions || {};
 
   return (
     permissions['*'] === true ||
@@ -166,9 +160,9 @@ export function hasPermission(authData, permission) {
 
 export function requirePermission(permission) {
   return (req, res, next) => {
-    const authData = req.auth || req.user;
+    const user = req.auth || req.user;
 
-    if (!hasPermission(authData, permission)) {
+    if (!hasPermission(user, permission)) {
       return res.status(403).json({
         error: 'PERMISSION_DENIED',
         permission
@@ -180,7 +174,7 @@ export function requirePermission(permission) {
 }
 
 /* =========================
-   Compatibility aliases
+   Compatibility
 ========================= */
 
 export const id = createId;
