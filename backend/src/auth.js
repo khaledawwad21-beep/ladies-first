@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import crypto from 'node:crypto';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'change-this-secret-before-production';
+const JWT_SECRET = process.env.JWT_SECRET || 'change-this-secret';
 
 export async function hashPassword(password) {
   return bcrypt.hash(String(password), 12);
@@ -28,36 +28,51 @@ export function createId() {
 export function authRequired(req, res, next) {
   try {
     const header = req.headers.authorization || '';
+
     const token = header.startsWith('Bearer ')
       ? header.slice(7)
       : '';
 
     if (!token) {
-      return res.status(401).json({ error: 'UNAUTHORIZED' });
+      return res.status(401).json({
+        error: 'UNAUTHORIZED'
+      });
     }
 
     req.auth = verifyToken(token);
     next();
+
   } catch {
-    return res.status(401).json({ error: 'INVALID_TOKEN' });
+    return res.status(401).json({
+      error: 'INVALID_TOKEN'
+    });
   }
 }
 
 export function adminOnly(req, res, next) {
   if (!req.auth?.is_admin) {
-    return res.status(403).json({ error: 'ADMIN_ONLY' });
+    return res.status(403).json({
+      error: 'ADMIN_REQUIRED'
+    });
   }
 
   if (req.auth.active === 0) {
-    return res.status(403).json({ error: 'ADMIN_DISABLED' });
+    return res.status(403).json({
+      error: 'ADMIN_DISABLED'
+    });
   }
 
   next();
 }
 
 export function ownerOnly(req, res, next) {
-  if (!req.auth?.is_admin || Number(req.auth.is_owner) !== 1) {
-    return res.status(403).json({ error: 'OWNER_ONLY' });
+  if (
+    !req.auth?.is_admin ||
+    Number(req.auth.is_owner) !== 1
+  ) {
+    return res.status(403).json({
+      error: 'OWNER_REQUIRED'
+    });
   }
 
   next();
@@ -65,12 +80,17 @@ export function ownerOnly(req, res, next) {
 
 export function hasPermission(auth, permission) {
   if (!auth?.is_admin) return false;
-  if (Number(auth.is_owner) === 1) return true;
+
+  if (Number(auth.is_owner) === 1) {
+    return true;
+  }
 
   const permissions = auth.permissions || {};
 
-  return permissions['*'] === true ||
-         permissions[permission] === true;
+  return (
+    permissions['*'] === true ||
+    permissions[permission] === true
+  );
 }
 
 export function requirePermission(permission) {
@@ -85,3 +105,7 @@ export function requirePermission(permission) {
     next();
   };
 }
+
+// Compatibility aliases used by server.js
+export const auth = authRequired;
+export const id = createId;
